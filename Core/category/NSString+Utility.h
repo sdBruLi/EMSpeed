@@ -24,11 +24,11 @@
  *  根据字体和尺寸, 计算字符串高度
  *
  *  @param font  字体大小
- *  @param asize 容器尺寸
+ *  @param asize 容器最大尺寸
  *
  *  @return 尺寸
  */
-- (CGSize)em_sizeWithFont:(UIFont *)font constrainedToSize:(CGSize)asize;
+- (CGSize)em_sizeWithFont:(UIFont *)font constrainedToSize:(CGSize)maxSize;
 
 
 /**

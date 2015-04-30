@@ -17,14 +17,25 @@
 	return trimmed;
 }
 
-- (CGSize)em_sizeWithFont:(UIFont *)font constrainedToSize:(CGSize)asize
+- (CGSize)em_sizeWithFont:(UIFont *)font constrainedToSize:(CGSize)maxSize
 {
-    CGSize size;
+    if (EMOSVersionLessThan(7.0)) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    size = [self sizeWithFont:font constrainedToSize:asize];
+        CGSize size = [self sizeWithFont:font constrainedToSize:maxSize];
 #pragma clang diagnostic pop
-	return size;
+        return size;
+    } else {
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        [paragraphStyle setLineBreakMode:NSLineBreakByWordWrapping];
+        
+        NSDictionary *stringAttributes = [NSDictionary dictionaryWithObjects:@[font, paragraphStyle] forKeys:@[NSFontAttributeName, NSParagraphStyleAttributeName]];
+        CGRect newRect = [self boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:stringAttributes context:nil];
+        CGSize sizeAlignedToPixel = CGSizeMake(ceilf(newRect.size.width), ceilf(newRect.size.height));
+        
+        // 经过调研, sizeWithFont 与 label的text 高度计算值有1个像素的差异, 因此在这边高度+1了, 否则label会显示不全
+        return CGSizeMake(sizeAlignedToPixel.width, sizeAlignedToPixel.height + 1);
+    }
 }
 
 - (BOOL)isPureInt
