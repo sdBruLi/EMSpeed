@@ -54,3 +54,35 @@ NSString* EMAppVersion()
     return versionValue ? (NSString *)versionValue :  @"1.0.0";
 }
 
+
+
+
+BOOL EMOSVersionLessThan(float version)
+{
+    return [[[UIDevice currentDevice] systemVersion] floatValue] < version;
+}
+
+
+
+BOOL EMOSVersionEqual(float version)
+{
+    return [[[UIDevice currentDevice] systemVersion] floatValue] == version;
+}
+
+
+BOOL EMOSVersionMoreThan(float version)
+{
+    return [[[UIDevice currentDevice] systemVersion] floatValue] > version;
+}
+
+
+BOOL EMOSVersionEqualOrLessThan(float version)
+{
+    return EMOSVersionLessThan(version) || EMOSVersionEqual(version);
+}
+
+
+BOOL EMOSVersionEqualOrMoreThan(float version)
+{
+    return EMOSVersionMoreThan(version) || EMOSVersionEqual(version);
+}

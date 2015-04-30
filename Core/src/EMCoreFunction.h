@@ -44,6 +44,7 @@ extern "C" {
     float EMOSVersion(void);
     
     
+    
     /**
      *  当前是否是竖屏
      *
@@ -58,6 +59,57 @@ extern "C" {
      *  @return 当前是否是横屏
      */
     BOOL EMIsLandscape();
+    
+    
+    
+    /**
+     *  当前iOS版本号, 是否小于输入版本号
+     *
+     *  @param version 输入版本号
+     *
+     *  @return 当前iOS版本号, 是否小于输入版本号
+     */
+    BOOL EMOSVersionLessThan(float version);
+    
+    
+    /**
+     *  当前iOS版本号, 是否等于输入版本号
+     *
+     *  @param version 输入版本号
+     *
+     *  @return 当前iOS版本号, 是否等于输入版本号
+     */
+    BOOL EMOSVersionEqual(float version);
+    
+    
+    /**
+     *  当前iOS版本号, 是否大于输入版本号
+     *
+     *  @param version 输入版本号
+     *
+     *  @return 当前iOS版本号, 是否大于输入版本号
+     */
+    BOOL EMOSVersionMoreThan(float version);
+    
+    
+    /**
+     *  当前iOS版本号, 是否小于等于输入版本号
+     *
+     *  @param version 输入版本号
+     *
+     *  @return 当前iOS版本号, 是否小于等于输入版本号
+     */
+    BOOL EMOSVersionEqualOrLessThan(float version);
+    
+    
+    /**
+     *  当前iOS版本号, 是否大于等于输入版本号
+     *
+     *  @param version 输入版本号
+     *
+     *  @return 当前iOS版本号, 是否大于等于输入版本号
+     */
+    BOOL EMOSVersionEqualOrMoreThan(float version);
     
     
 #ifdef __cplusplus
