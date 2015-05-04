@@ -6,15 +6,15 @@
 //  Copyright (c) 2015年 Mac mini 2012. All rights reserved.
 //
 
-#import "EMParseableCellModel.h"
+#import "EMParseableObject+CellModel.h"
 
 
-@implementation EMParseableCellModel
+@implementation EMParseableObject(CellModel)
 
 + (id<MMCellModel>)cellModelWithData:(NSDictionary *)info
-                           cellClass:(Class)cls
+                           cellModelClass:(Class)cls
 {
-    EMParseableCellModel *obj = [self instanceWithData:info];
+    EMParseableObject *obj = [self instanceWithData:info];
     
     id<MMCellModel> cellModel = [[cls alloc] init];
     [cellModel parseItem:obj];
@@ -23,12 +23,12 @@
 }
 
 + (NSMutableArray *)cellModelsWithArray:(NSArray *)infos
-                              cellClass:(Class)cls
+                         cellModelClass:(Class)cls
 {
     NSMutableArray *cellModels = [NSMutableArray array];
     
     for (NSDictionary *info in infos) {
-        id<MMCellModel> cellModel = [self cellModelWithData:info cellClass:cls];
+        id<MMCellModel> cellModel = [self cellModelWithData:info cellModelClass:cls];
         [cellModels addObject:cellModel];
     }
     

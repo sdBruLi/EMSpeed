@@ -17,6 +17,7 @@
 @interface MMTableController : UIViewController <UITableViewDelegate>{
 
     UITableView *_tableView;
+    UIView *_emptyView;
 }
 
 /**
@@ -30,9 +31,15 @@
  */
 @property (nonatomic, strong) MMMutableDataSource *dataSource;
 
-
+/**
+ *  空视图, 默认会有一个空视图
+ */
 @property (nonatomic, strong) UIView *emptyView;
 
+/**
+ *  是否自动显示空视图
+ */
+@property (nonatomic, assign) BOOL autoDisplayEmptyView;
 
 /**
  *  重新加载列表界面
@@ -47,22 +54,6 @@
  *  子类实现
  */
 - (void)tableViewDidRegisterTableViewCell; // 子类实现
-
-
-/**
- *  显示空白界面
- *
- *  @param hidden 空白界面
- */
-- (void)setEmptyViewHidden:(BOOL)hidden;
-
-
-/**
- *  是否是空的datasource
- *
- *  @return 是否是空的datasource
- */
-- (BOOL)isEmptyDatasource;
 
 
 @end

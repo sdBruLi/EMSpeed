@@ -14,7 +14,9 @@
  *  同MMRefreshTableController, 主要用于storyboard
  */
 
-@interface MMRefreshTableViewController : MMTableViewController
+@interface MMRefreshTableViewController : MMTableViewController {
+    BOOL _isBackFromPush;
+}
 
 
 /**
@@ -27,6 +29,18 @@
  *  初始化时设置, 默认YES
  */
 @property (nonatomic, assign) BOOL enableRefreshFooter;
+
+
+/**
+ *  当viewDidAppear显示时, 是否要刷新, 默认是YES
+ */
+@property (nonatomic, assign) BOOL refreshWhenFirstViewDidAppear;
+
+
+/**
+ *  从其他界面返回viewDidAppear时, 是否需要刷新, 默认是NO
+ */
+@property (nonatomic, assign) BOOL refreshWhenPushBack;
 
 
 /**

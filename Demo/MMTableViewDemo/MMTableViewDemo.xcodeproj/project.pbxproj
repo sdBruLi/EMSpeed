@@ -39,9 +39,6 @@
 		18309B9B1AF072B40057945D /* EMCoreMetrics.m in Sources */ = {isa = PBXBuildFile; fileRef = 18309B8B1AF072B40057945D /* EMCoreMetrics.m */; };
 		18309B9C1AF072B40057945D /* EMCorePaths.m in Sources */ = {isa = PBXBuildFile; fileRef = 18309B8D1AF072B40057945D /* EMCorePaths.m */; };
 		18309B9D1AF072B40057945D /* EMCoreSDKAvailability.m in Sources */ = {isa = PBXBuildFile; fileRef = 18309B8F1AF072B40057945D /* EMCoreSDKAvailability.m */; };
-		18309BA31AF076510057945D /* EMHTTPRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18309BA11AF076510057945D /* EMHTTPRequestModel.m */; };
-		18309BA61AF079440057945D /* EMHTTPResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 18309BA51AF079440057945D /* EMHTTPResponse.m */; };
-		18309BAA1AF082B60057945D /* EMParseableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 18309BA81AF082B60057945D /* EMParseableObject.m */; };
 		18309BCD1AF086630057945D /* MMInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18309BB01AF086630057945D /* MMInfoViewController.m */; };
 		18309BCE1AF086630057945D /* MMMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18309BB21AF086630057945D /* MMMenuController.m */; };
 		18309BCF1AF086630057945D /* MMVIPTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18309BB41AF086630057945D /* MMVIPTableController.m */; };
@@ -58,7 +55,16 @@
 		18309BDA1AF086630057945D /* MMInfoCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18309BC91AF086630057945D /* MMInfoCell2.xib */; };
 		18309BDB1AF086630057945D /* MMInfoCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = 18309BCB1AF086630057945D /* MMInfoCell3.m */; };
 		18309BDC1AF086630057945D /* MMInfoCell3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18309BCC1AF086630057945D /* MMInfoCell3.xib */; };
-		18309BDF1AF0B6F50057945D /* EMParseableCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18309BDE1AF0B6F50057945D /* EMParseableCellModel.m */; };
+		1835D2E31AF209B3008E4FD8 /* EMUIResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1835D2E21AF209B3008E4FD8 /* EMUIResources.bundle */; };
+		1835D2E61AF212D3008E4FD8 /* MMTableEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1835D2E51AF212D3008E4FD8 /* MMTableEmptyView.m */; };
+		1835D2F21AF218BF008E4FD8 /* EMHTTPRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1835D2EA1AF218BF008E4FD8 /* EMHTTPRequestModel.m */; };
+		1835D2F31AF218BF008E4FD8 /* EMHTTPResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 1835D2EC1AF218BF008E4FD8 /* EMHTTPResponse.m */; };
+		1835D2F41AF218BF008E4FD8 /* EMParseableObject+CellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1835D2EE1AF218BF008E4FD8 /* EMParseableObject+CellModel.m */; };
+		1835D2F51AF218BF008E4FD8 /* EMParseableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 1835D2F01AF218BF008E4FD8 /* EMParseableObject.m */; };
+		1835D2F81AF21BA5008E4FD8 /* MMInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1835D2F71AF21BA5008E4FD8 /* MMInfoTableViewController.m */; };
+		1835D2FA1AF21BEF008E4FD8 /* MMInfoTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1835D2F91AF21BEF008E4FD8 /* MMInfoTableViewController.xib */; };
+		1835D3121AF226B5008E4FD8 /* MMVIPTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1835D3101AF226B5008E4FD8 /* MMVIPTableViewController.m */; };
+		1835D3131AF226B5008E4FD8 /* MMVIPTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1835D3111AF226B5008E4FD8 /* MMVIPTableViewController.xib */; };
 		96AF1FA51AA1BB1D0032735D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96AF1FA41AA1BB1D0032735D /* Default-568h@2x.png */; };
 		96BC730F1A9F0AFC0020E5A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 96BC730E1A9F0AFC0020E5A1 /* main.m */; };
 		96BC73121A9F0AFC0020E5A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 96BC73111A9F0AFC0020E5A1 /* AppDelegate.m */; };
@@ -155,13 +161,6 @@
 		18309B8E1AF072B40057945D /* EMCoreSDKAvailability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCoreSDKAvailability.h; sourceTree = "<group>"; };
 		18309B8F1AF072B40057945D /* EMCoreSDKAvailability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMCoreSDKAvailability.m; sourceTree = "<group>"; };
 		18309B9E1AF072E10057945D /* Core-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Core-Prefix.pch"; sourceTree = "<group>"; };
-		18309BA01AF076510057945D /* EMHTTPRequestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMHTTPRequestModel.h; sourceTree = "<group>"; };
-		18309BA11AF076510057945D /* EMHTTPRequestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMHTTPRequestModel.m; sourceTree = "<group>"; };
-		18309BA41AF079440057945D /* EMHTTPResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMHTTPResponse.h; path = MMTableViewDemo/Network/EMHTTPResponse.h; sourceTree = SOURCE_ROOT; };
-		18309BA51AF079440057945D /* EMHTTPResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EMHTTPResponse.m; path = MMTableViewDemo/Network/EMHTTPResponse.m; sourceTree = SOURCE_ROOT; };
-		18309BA71AF082B60057945D /* EMParseableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMParseableObject.h; path = MMTableViewDemo/Network/EMParseableObject.h; sourceTree = SOURCE_ROOT; };
-		18309BA81AF082B60057945D /* EMParseableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EMParseableObject.m; path = MMTableViewDemo/Network/EMParseableObject.m; sourceTree = SOURCE_ROOT; };
-		18309BA91AF082B60057945D /* EMParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMParser.h; path = MMTableViewDemo/Network/EMParser.h; sourceTree = SOURCE_ROOT; };
 		18309BAF1AF086630057945D /* MMInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMInfoViewController.h; sourceTree = "<group>"; };
 		18309BB01AF086630057945D /* MMInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMInfoViewController.m; sourceTree = "<group>"; };
 		18309BB11AF086630057945D /* MMMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMenuController.h; sourceTree = "<group>"; };
@@ -190,9 +189,25 @@
 		18309BCA1AF086630057945D /* MMInfoCell3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMInfoCell3.h; sourceTree = "<group>"; };
 		18309BCB1AF086630057945D /* MMInfoCell3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMInfoCell3.m; sourceTree = "<group>"; };
 		18309BCC1AF086630057945D /* MMInfoCell3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMInfoCell3.xib; sourceTree = "<group>"; };
-		18309BDD1AF0B6F50057945D /* EMParseableCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMParseableCellModel.h; path = MMTableViewDemo/Network/EMParseableCellModel.h; sourceTree = SOURCE_ROOT; };
-		18309BDE1AF0B6F50057945D /* EMParseableCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EMParseableCellModel.m; path = MMTableViewDemo/Network/EMParseableCellModel.m; sourceTree = SOURCE_ROOT; };
-		18309BE01AF0F1590057945D /* EMCellModelParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMCellModelParser.h; path = MMTableViewDemo/Network/EMCellModelParser.h; sourceTree = SOURCE_ROOT; };
+		1835D2E21AF209B3008E4FD8 /* EMUIResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EMUIResources.bundle; sourceTree = "<group>"; };
+		1835D2E41AF212D3008E4FD8 /* MMTableEmptyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTableEmptyView.h; sourceTree = "<group>"; };
+		1835D2E51AF212D3008E4FD8 /* MMTableEmptyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTableEmptyView.m; sourceTree = "<group>"; };
+		1835D2E81AF218BF008E4FD8 /* EMCellModelParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCellModelParser.h; sourceTree = "<group>"; };
+		1835D2E91AF218BF008E4FD8 /* EMHTTPRequestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMHTTPRequestModel.h; sourceTree = "<group>"; };
+		1835D2EA1AF218BF008E4FD8 /* EMHTTPRequestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMHTTPRequestModel.m; sourceTree = "<group>"; };
+		1835D2EB1AF218BF008E4FD8 /* EMHTTPResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMHTTPResponse.h; sourceTree = "<group>"; };
+		1835D2EC1AF218BF008E4FD8 /* EMHTTPResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMHTTPResponse.m; sourceTree = "<group>"; };
+		1835D2ED1AF218BF008E4FD8 /* EMParseableObject+CellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EMParseableObject+CellModel.h"; sourceTree = "<group>"; };
+		1835D2EE1AF218BF008E4FD8 /* EMParseableObject+CellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EMParseableObject+CellModel.m"; sourceTree = "<group>"; };
+		1835D2EF1AF218BF008E4FD8 /* EMParseableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMParseableObject.h; sourceTree = "<group>"; };
+		1835D2F01AF218BF008E4FD8 /* EMParseableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMParseableObject.m; sourceTree = "<group>"; };
+		1835D2F11AF218BF008E4FD8 /* EMParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMParser.h; sourceTree = "<group>"; };
+		1835D2F61AF21BA5008E4FD8 /* MMInfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMInfoTableViewController.h; sourceTree = "<group>"; };
+		1835D2F71AF21BA5008E4FD8 /* MMInfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMInfoTableViewController.m; sourceTree = "<group>"; };
+		1835D2F91AF21BEF008E4FD8 /* MMInfoTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMInfoTableViewController.xib; sourceTree = "<group>"; };
+		1835D30F1AF226B5008E4FD8 /* MMVIPTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMVIPTableViewController.h; sourceTree = "<group>"; };
+		1835D3101AF226B5008E4FD8 /* MMVIPTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMVIPTableViewController.m; sourceTree = "<group>"; };
+		1835D3111AF226B5008E4FD8 /* MMVIPTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMVIPTableViewController.xib; sourceTree = "<group>"; };
 		96AF1FA41AA1BB1D0032735D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		96BC73091A9F0AFB0020E5A1 /* MMTableViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMTableViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96BC730D1A9F0AFC0020E5A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -283,14 +298,16 @@
 				18309B5A1AEF93BE0057945D /* MMDataSource.m */,
 				18309B5B1AEF93BE0057945D /* MMMutableDataSource.h */,
 				18309B5C1AEF93BE0057945D /* MMMutableDataSource.m */,
-				18309B5D1AEF93BE0057945D /* MMRefreshTableController.h */,
-				18309B5E1AEF93BE0057945D /* MMRefreshTableController.m */,
-				18309B5F1AEF93BE0057945D /* MMRefreshTableViewController.h */,
-				18309B601AEF93BE0057945D /* MMRefreshTableViewController.m */,
 				18309B611AEF93BE0057945D /* MMTableController.h */,
 				18309B621AEF93BE0057945D /* MMTableController.m */,
+				18309B5D1AEF93BE0057945D /* MMRefreshTableController.h */,
+				18309B5E1AEF93BE0057945D /* MMRefreshTableController.m */,
 				18309B631AEF93BE0057945D /* MMTableViewController.h */,
 				18309B641AEF93BE0057945D /* MMTableViewController.m */,
+				18309B5F1AEF93BE0057945D /* MMRefreshTableViewController.h */,
+				18309B601AEF93BE0057945D /* MMRefreshTableViewController.m */,
+				1835D2E41AF212D3008E4FD8 /* MMTableEmptyView.h */,
+				1835D2E51AF212D3008E4FD8 /* MMTableEmptyView.m */,
 			);
 			name = tableview;
 			path = ../../../UI/src/tableview;
@@ -350,24 +367,6 @@
 			path = src;
 			sourceTree = "<group>";
 		};
-		18309B9F1AF076510057945D /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				18309BA01AF076510057945D /* EMHTTPRequestModel.h */,
-				18309BA11AF076510057945D /* EMHTTPRequestModel.m */,
-				18309BA41AF079440057945D /* EMHTTPResponse.h */,
-				18309BA51AF079440057945D /* EMHTTPResponse.m */,
-				18309BA71AF082B60057945D /* EMParseableObject.h */,
-				18309BA81AF082B60057945D /* EMParseableObject.m */,
-				18309BDD1AF0B6F50057945D /* EMParseableCellModel.h */,
-				18309BDE1AF0B6F50057945D /* EMParseableCellModel.m */,
-				18309BA91AF082B60057945D /* EMParser.h */,
-				18309BE01AF0F1590057945D /* EMCellModelParser.h */,
-			);
-			name = Network;
-			path = network;
-			sourceTree = "<group>";
-		};
 		18309BAE1AF086630057945D /* controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -377,6 +376,12 @@
 				18309BB21AF086630057945D /* MMMenuController.m */,
 				18309BB31AF086630057945D /* MMVIPTableController.h */,
 				18309BB41AF086630057945D /* MMVIPTableController.m */,
+				1835D2F61AF21BA5008E4FD8 /* MMInfoTableViewController.h */,
+				1835D2F71AF21BA5008E4FD8 /* MMInfoTableViewController.m */,
+				1835D2F91AF21BEF008E4FD8 /* MMInfoTableViewController.xib */,
+				1835D30F1AF226B5008E4FD8 /* MMVIPTableViewController.h */,
+				1835D3101AF226B5008E4FD8 /* MMVIPTableViewController.m */,
+				1835D3111AF226B5008E4FD8 /* MMVIPTableViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -417,6 +422,24 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		1835D2E71AF218BF008E4FD8 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				1835D2E81AF218BF008E4FD8 /* EMCellModelParser.h */,
+				1835D2E91AF218BF008E4FD8 /* EMHTTPRequestModel.h */,
+				1835D2EA1AF218BF008E4FD8 /* EMHTTPRequestModel.m */,
+				1835D2EB1AF218BF008E4FD8 /* EMHTTPResponse.h */,
+				1835D2EC1AF218BF008E4FD8 /* EMHTTPResponse.m */,
+				1835D2ED1AF218BF008E4FD8 /* EMParseableObject+CellModel.h */,
+				1835D2EE1AF218BF008E4FD8 /* EMParseableObject+CellModel.m */,
+				1835D2EF1AF218BF008E4FD8 /* EMParseableObject.h */,
+				1835D2F01AF218BF008E4FD8 /* EMParseableObject.m */,
+				1835D2F11AF218BF008E4FD8 /* EMParser.h */,
+			);
+			name = Network;
+			path = ../../../Network;
+			sourceTree = "<group>";
+		};
 		96BC73001A9F0AFB0020E5A1 = {
 			isa = PBXGroup;
 			children = (
@@ -439,11 +462,11 @@
 		96BC730B1A9F0AFC0020E5A1 /* MMTableViewDemo */ = {
 			isa = PBXGroup;
 			children = (
+				1835D2E71AF218BF008E4FD8 /* Network */,
 				18309B6F1AF072B40057945D /* Core */,
 				18309B561AEF93BE0057945D /* tableview */,
 				18309B311AEF93B50057945D /* MJRefresh */,
 				96BC735F1A9F104E0020E5A1 /* AFNetworking */,
-				18309B9F1AF076510057945D /* Network */,
 				96BC73101A9F0AFC0020E5A1 /* AppDelegate.h */,
 				96BC73111A9F0AFC0020E5A1 /* AppDelegate.m */,
 				18309BAE1AF086630057945D /* controller */,
@@ -458,6 +481,7 @@
 		96BC730C1A9F0AFC0020E5A1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1835D2E21AF209B3008E4FD8 /* EMUIResources.bundle */,
 				96BC730D1A9F0AFC0020E5A1 /* Info.plist */,
 				96BC730E1A9F0AFC0020E5A1 /* main.m */,
 				18309B9E1AF072E10057945D /* Core-Prefix.pch */,
@@ -598,11 +622,14 @@
 			files = (
 				18309BD81AF086630057945D /* MMInfoCell.xib in Resources */,
 				96BC731A1A9F0AFC0020E5A1 /* Images.xcassets in Resources */,
+				1835D2FA1AF21BEF008E4FD8 /* MMInfoTableViewController.xib in Resources */,
 				18309B4A1AEF93B50057945D /* MJRefresh.bundle in Resources */,
 				18309BD61AF086630057945D /* EMInfoNewsCell.xib in Resources */,
 				18309BDC1AF086630057945D /* MMInfoCell3.xib in Resources */,
 				18309BDA1AF086630057945D /* MMInfoCell2.xib in Resources */,
+				1835D3131AF226B5008E4FD8 /* MMVIPTableViewController.xib in Resources */,
 				96AF1FA51AA1BB1D0032735D /* Default-568h@2x.png in Resources */,
+				1835D2E31AF209B3008E4FD8 /* EMUIResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -620,6 +647,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1835D2F31AF218BF008E4FD8 /* EMHTTPResponse.m in Sources */,
 				18309B921AF072B40057945D /* NSString+Format.m in Sources */,
 				18309B531AEF93B50057945D /* UIScrollView+MJExtension.m in Sources */,
 				18309BD01AF086630057945D /* EMInfoNewsItem.m in Sources */,
@@ -628,18 +656,22 @@
 				18309B9C1AF072B40057945D /* EMCorePaths.m in Sources */,
 				18309B4B1AEF93B50057945D /* MJRefreshComponent.m in Sources */,
 				18309B911AF072B40057945D /* NSObject+Reflect.m in Sources */,
+				1835D2F81AF21BA5008E4FD8 /* MMInfoTableViewController.m in Sources */,
 				96BC738A1A9F104E0020E5A1 /* AFHTTPSessionManager.m in Sources */,
-				18309BA31AF076510057945D /* EMHTTPRequestModel.m in Sources */,
 				18309BCE1AF086630057945D /* MMMenuController.m in Sources */,
+				1835D3121AF226B5008E4FD8 /* MMVIPTableViewController.m in Sources */,
 				18309B501AEF93B50057945D /* MJRefreshHeader.m in Sources */,
+				1835D2F21AF218BF008E4FD8 /* EMHTTPRequestModel.m in Sources */,
 				96BC738B1A9F104E0020E5A1 /* AFNetworkReachabilityManager.m in Sources */,
 				18309B681AEF93BF0057945D /* MMRefreshTableViewController.m in Sources */,
 				18309B6A1AEF93BF0057945D /* MMTableViewController.m in Sources */,
 				96BC738C1A9F104E0020E5A1 /* AFSecurityPolicy.m in Sources */,
 				18309B551AEF93B50057945D /* UIView+MJExtension.m in Sources */,
+				1835D2E61AF212D3008E4FD8 /* MMTableEmptyView.m in Sources */,
 				96BC73121A9F0AFC0020E5A1 /* AppDelegate.m in Sources */,
 				18309B671AEF93BF0057945D /* MMRefreshTableController.m in Sources */,
 				18309B981AF072B40057945D /* pinyin.c in Sources */,
+				1835D2F51AF218BF008E4FD8 /* EMParseableObject.m in Sources */,
 				18309BD31AF086630057945D /* MMInfoItem3.m in Sources */,
 				18309B521AEF93B50057945D /* MJRefreshLegendHeader.m in Sources */,
 				18309B541AEF93B50057945D /* UIScrollView+MJRefresh.m in Sources */,
@@ -662,11 +694,8 @@
 				18309BCD1AF086630057945D /* MMInfoViewController.m in Sources */,
 				18309B661AEF93BF0057945D /* MMMutableDataSource.m in Sources */,
 				18309B901AF072B40057945D /* NSDate+String.m in Sources */,
-				18309BAA1AF082B60057945D /* EMParseableObject.m in Sources */,
-				18309BA61AF079440057945D /* EMHTTPResponse.m in Sources */,
 				18309B951AF072B40057945D /* NSString+Pinyin.m in Sources */,
 				96BC73881A9F104E0020E5A1 /* AFHTTPRequestOperation.m in Sources */,
-				18309BDF1AF0B6F50057945D /* EMParseableCellModel.m in Sources */,
 				18309B511AEF93B50057945D /* MJRefreshLegendFooter.m in Sources */,
 				96BC738F1A9F104E0020E5A1 /* AFURLResponseSerialization.m in Sources */,
 				18309B9B1AF072B40057945D /* EMCoreMetrics.m in Sources */,
@@ -675,6 +704,7 @@
 				18309BD51AF086630057945D /* EMInfoNewsCell.m in Sources */,
 				18309B691AEF93BF0057945D /* MMTableController.m in Sources */,
 				18309BDB1AF086630057945D /* MMInfoCell3.m in Sources */,
+				1835D2F41AF218BF008E4FD8 /* EMParseableObject+CellModel.m in Sources */,
 				18309BD71AF086630057945D /* MMInfoCell.m in Sources */,
 				18309B4D1AEF93B50057945D /* MJRefreshFooter.m in Sources */,
 				18309BD21AF086630057945D /* MMInfoItem.m in Sources */,
@@ -784,6 +814,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MMTableViewDemo/Core-Prefix.pch";
 				INFOPLIST_FILE = MMTableViewDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -797,6 +828,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MMTableViewDemo/Core-Prefix.pch";
 				INFOPLIST_FILE = MMTableViewDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

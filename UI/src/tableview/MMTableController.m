@@ -8,14 +8,10 @@
 
 #import "MMTableController.h"
 #import "MMMutableDataSource.h"
+#import "MMTableEmptyView.h"
 
 const CGFloat kMMCellDefaultHeight = 44;
 
-@interface MMTableController () {
-    BOOL _isEmptyViewHidden;
-}
-
-@end
 
 @implementation MMTableController
 @synthesize tableView = _tableView;
@@ -24,13 +20,14 @@ const CGFloat kMMCellDefaultHeight = 44;
 {
     self = [super init];
     if (self) {
-        _isEmptyViewHidden = YES;
         
         if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
         {
             self.edgesForExtendedLayout = UIRectEdgeNone;
             self.extendedLayoutIncludesOpaqueBars = NO;
         }
+        
+        self.autoDisplayEmptyView = YES;
     }
     
     return self;
@@ -71,8 +68,17 @@ const CGFloat kMMCellDefaultHeight = 44;
 
 - (void)reloadPages:(MMMutableDataSource *)dataSource
 {
-    if (self.dataSource != dataSource)
-    {
+    // empty view
+    if (self.autoDisplayEmptyView && [self isEmptyDatasource:dataSource]) {
+        [self.view addSubview:self.emptyView];
+        self.emptyView.hidden = NO;
+    }
+    else{
+        [self emptyView].hidden = YES;
+    }
+    
+    // datasource
+    if (self.dataSource != dataSource) {
         self.dataSource = dataSource;
         _tableView.delegate = self;
         _tableView.dataSource = dataSource;
@@ -117,36 +123,36 @@ const CGFloat kMMCellDefaultHeight = 44;
 }
 
 
-- (void)setEmptyViewHidden:(BOOL)hidden
-{
-    _emptyView.hidden = hidden;
-}
+# pragma mark - EmptyView 
 
 - (UIView *)emptyView
 {
     if (_emptyView == nil) {
-        UILabel *label = [[UILabel alloc] initWithFrame:self.tableView.bounds];
-        label.text = @"暂无数据~~";
-        label.textAlignment = NSTextAlignmentCenter;
-        label.font = [UIFont systemFontOfSize:12];
-        
-        UIImageView *imgv = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon.png"]];
-        [label addSubview:imgv];
-        imgv.center = CGPointMake(CGRectGetMidX(label.frame), label.frame.size.height/2.f - 20 - imgv.frame.size.height/2);
-        
-        _emptyView = label;
+        _emptyView = [[MMTableEmptyView alloc] initWithFrame:self.view.bounds];
     }
     
     return _emptyView;
 }
 
+- (void)setEmptyView:(UIView *)emptyView
+{
+    _emptyView = emptyView;
+}
+
+
 - (BOOL)isEmptyDatasource
 {
-    if (self.dataSource) {
-        return [self.dataSource.items count] == 0 || [self.dataSource.sections count] == 0;
+    return [self isEmptyDatasource:self.dataSource];
+}
+
+- (BOOL)isEmptyDatasource:(MMDataSource *)dataSource
+{
+    if (dataSource) {
+        return [dataSource.items count] == 0 || [dataSource.sections count] == 0;
     }
     
     return YES;
 }
+
 
 @end

@@ -26,7 +26,7 @@
 {
     if ([cellModel isKindOfClass:[EMInfoNewsItem class]]) {
         
-        EMInfoNewsItem *item = cellModel;
+        EMInfoNewsItem *item = (EMInfoNewsItem *)cellModel;
         self.titleLabel.text = item.title;
         self.contentLabel.text = item.summary;
         self.timeLabel.text = item.date;

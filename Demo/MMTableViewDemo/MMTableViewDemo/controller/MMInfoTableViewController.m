@@ -1,34 +1,16 @@
 //
-//  ViewController.m
+//  MMVIPTableViewController.m
 //  MMTableViewDemo
 //
-//  Created by Mac mini 2012 on 15-2-26.
+//  Created by Samuel on 15/4/30.
 //  Copyright (c) 2015年 Mac mini 2012. All rights reserved.
 //
 
-#import "MMInfoViewController.h"
+#import "MMInfoTableViewController.h"
 #import "MMInfoModel.h"
-#import "MJRefresh.h"
 
-@interface MMInfoViewController ()
+@implementation MMInfoTableViewController
 
-@end
-
-@implementation MMInfoViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-        
-    // Do any additional setup after loading the view, typically from a nib.
-//    [self loadEmptyView];
-}
-
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    
-    [self requestDataSource];
-}
 
 - (void)tableViewDidRegisterTableViewCell
 {
@@ -36,6 +18,12 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"MMInfoCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"MMInfoCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"MMInfoCell2" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"MMInfoCell2"];
     [self.tableView registerNib:[UINib nibWithNibName:@"MMInfoCell3" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"MMInfoCell3"];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [self requestDataSource];
 }
 
 - (void)requestDataSource
@@ -51,14 +39,11 @@
         if (success && ((MMInfoModel *)_model).dataSource) {
             [self reloadPages:((MMInfoModel *)_model).dataSource];
         }
-        
-        [self.tableView.header endRefreshing];
     }];
     
     
     [self performSelector:@selector(requestDataSource) withObject:nil afterDelay:6.f];
 }
-
 
 - (void)MMInfoCellDoPressBuy:(MMInfoCell *)cell
 {
@@ -82,5 +67,4 @@
 {
     return _infoModelClass ? _infoModelClass : [MMInfoModel class];
 }
-
 @end

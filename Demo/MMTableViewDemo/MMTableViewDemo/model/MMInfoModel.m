@@ -11,7 +11,7 @@
 #import "MMInfoCell2.h"
 #import "MMInfoItem.h"
 #import "MMInfoItem3.h"
-#import "EMParseableCellModel.h"
+#import "EMParseableObject+CellModel.h"
 
 @implementation MMInfoModel
 @synthesize dataSource = _dataSource;
@@ -28,14 +28,16 @@
         }
         
         Class cls = [MMInfoCellModel class];
-        NSMutableArray *items = [MMInfoItem cellModelsWithArray:array cellClass:cls];
-        for (MMInfoCellModel *cellModel in items) {
+        NSMutableArray *cellModels = [MMInfoItem cellModelsWithArray:array cellModelClass:cls];
+        
+        
+        for (MMInfoCellModel *cellModel in cellModels) {
             cellModel.delegate = self.delegate;
         }
         
-        if ([items count] > 0) {
+        if ([cellModels count] > 0) {
             _dataSource = [[MMMutableDataSource alloc] init];
-            [_dataSource addNewSection:@"" withItems:items];
+            [_dataSource addNewSection:@"" withItems:cellModels];
             
             return YES;
         }
@@ -61,9 +63,8 @@
             return NO;
         }
         
-        
         Class cls = [MMInfoCellModel2 class];
-        NSMutableArray *items = [MMInfoItem cellModelsWithArray:array cellClass:cls];
+        NSMutableArray *items = [MMInfoItem cellModelsWithArray:array cellModelClass:cls];
         
         if ([items count] > 0) {
             _dataSource = [[MMMutableDataSource alloc] init];

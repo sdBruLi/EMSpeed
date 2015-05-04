@@ -8,7 +8,7 @@
 
 #import "MMTableViewController.h"
 #import "MMMutableDataSource.h"
-
+#import "MMTableEmptyView.h"
 
 
 @interface MMTableViewController (){
@@ -18,9 +18,9 @@
 
 @implementation MMTableViewController
 
-- (instancetype)init
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super init];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         
         if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
@@ -28,42 +28,10 @@
             self.edgesForExtendedLayout = UIRectEdgeNone;
             self.extendedLayoutIncludesOpaqueBars = NO;
         }
+        self.autoDisplayEmptyView = YES;
     }
     
     return self;
-}
-
-- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
-        {
-            self.edgesForExtendedLayout = UIRectEdgeNone;
-            self.extendedLayoutIncludesOpaqueBars = NO;
-        }
-    }
-    
-    return self;
-}
-
-- (instancetype)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
-        {
-            self.edgesForExtendedLayout = UIRectEdgeNone;
-            self.extendedLayoutIncludesOpaqueBars = NO;
-        }
-    }
-    
-    return self;
-}
-
-- (void)awakeFromNib
-{
-    [super awakeFromNib];
 }
 
 
@@ -88,8 +56,17 @@
 
 - (void)reloadPages:(MMMutableDataSource *)dataSource
 {
-    if (self.dataSource != dataSource)
-    {
+    // empty view
+    if (self.autoDisplayEmptyView && [self isEmptyDatasource:dataSource]) {
+        [self.view addSubview:self.emptyView];
+        self.emptyView.hidden = NO;
+    }
+    else{
+        [self emptyView].hidden = YES;
+    }
+    
+    // datasource
+    if (self.dataSource != dataSource) {
         self.dataSource = dataSource;
         self.tableView.delegate = self;
         self.tableView.dataSource = dataSource;
@@ -126,6 +103,40 @@
     
     return kMMCellDefaultHeight;
 }
+
+
+
+# pragma mark - EmptyView
+
+- (UIView *)emptyView
+{
+    if (_emptyView == nil) {
+        _emptyView = [[MMTableEmptyView alloc] initWithFrame:self.view.bounds];
+    }
+    
+    return _emptyView;
+}
+
+- (void)setEmptyView:(UIView *)emptyView
+{
+    _emptyView = emptyView;
+}
+
+- (BOOL)isEmptyDatasource
+{
+    return [self isEmptyDatasource:self.dataSource];
+}
+
+
+- (BOOL)isEmptyDatasource:(MMDataSource *)dataSource
+{
+    if (dataSource) {
+        return [dataSource.items count] == 0 || [dataSource.sections count] == 0;
+    }
+    
+    return YES;
+}
+
 
 
 @end

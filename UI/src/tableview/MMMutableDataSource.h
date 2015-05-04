@@ -102,9 +102,3 @@
 
 @end
 
-
-@interface MMMutableDataSource(GroupWebViewArray)
-
-- (NSArray *)toGroupWebViewArray:(NSIndexPath *)indexPath;
-
-@end

@@ -164,18 +164,3 @@
 
 
 
-@implementation MMMutableDataSource(GroupWebViewArray)
-
-- (NSArray *)toGroupWebViewArray:(NSIndexPath *)indexPath
-{
-    NSArray *array = [self.items objectAtIndex:indexPath.section];
-    NSUInteger size = [array count];
-    //    if (self.hasNextPage && indexPath.section == self.sections.count - 1)
-    //    {
-    //        size -= 1;
-    //    }
-    return [array subarrayWithRange:NSMakeRange(0, size)];
-}
-
-@end
-

@@ -46,8 +46,10 @@ NSString *infoNewsIDStringWithObject(id obj);
         return NO;
     }
     
-    //    BOOL isMore = [url rangeOfString:@"lastid"].location != NSNotFound;
     BOOL isRefresh = [url rangeOfString:@"topid"].location != NSNotFound;
+    NSString *refreshID = infoNewsIDStringWithObject([dictionary objectForKey:@"refresh"]);
+    NSString *moreID = infoNewsIDStringWithObject([dictionary objectForKey:@"more"]);
+    
     
     NSMutableArray *vipNewsItems = nil;
     NSString *newsTitle = @"VIP资讯";
@@ -75,29 +77,33 @@ NSString *infoNewsIDStringWithObject(id obj);
             NSDictionary *dict = [vip objectAtIndex:i];
             EMInfoNewsItem *tmp = [[EMInfoNewsItem alloc] initWithDictionary:dict];
             tmp.jianText = [NSString stringWithFormat:@"%d", i+1];
-            [vipNewsItems addObject:tmp];
+            
+            if (isRefresh) {
+                [vipNewsItems insertObject:tmp atIndex:0];
+            }
+            else {
+                [vipNewsItems addObject:tmp];
+            }
         }
     }
     
     MMMutableDataSource *dsTmp = [[MMMutableDataSource alloc] init];
     [dsTmp addNewSection:@"VIP资讯" withItems:vipNewsItems];
     
-    NSString *refresh = infoNewsIDStringWithObject([dictionary objectForKey:@"refresh"]);
-    NSString *moreID = infoNewsIDStringWithObject([dictionary objectForKey:@"more"]);
     if ([moreID length]>0) {
-        if (![moreID isEqualToString:@"-1"]) {
-            dsTmp.nextPageURL = [NSString stringWithFormat:@"%@?lastid=%@", self.url, moreID];
+        if ([moreID isEqualToString:@"-1"]) {
+            dsTmp.nextPageURL = nil;
         }
         else{
-            dsTmp.nextPageURL = nil;
+            dsTmp.nextPageURL = [NSString stringWithFormat:@"%@?lastid=%@", self.url, moreID];
         }
     }
     else{
         dsTmp.nextPageURL = ds.nextPageURL;
     }
     
-    if ([refresh length]>0) {
-        dsTmp.refreshURL = [NSString stringWithFormat:@"%@?topid=%@", self.url, refresh];
+    if ([refreshID length]>0) {
+        dsTmp.refreshURL = [NSString stringWithFormat:@"%@?topid=%@", self.url, refreshID];
     }
     else{
         dsTmp.refreshURL = ds.refreshURL;

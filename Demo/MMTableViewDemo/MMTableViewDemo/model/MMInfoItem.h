@@ -8,11 +8,11 @@
 
 #import "MMCellModel.h"
 #import "NSObject+reflect.h"
-#import "EMParseableCellModel.h"
+#import "EMParseableObject+CellModel.h"
 
 @class MMInfoCellModel;
 
-@interface MMInfoItem : EMParseableCellModel
+@interface MMInfoItem : EMParseableObject
 
 @property (nonatomic, strong) NSString *n_id;
 @property (nonatomic, strong) NSString *n_id_id;

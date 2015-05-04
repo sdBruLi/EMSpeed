@@ -15,7 +15,7 @@
 - (void)update:(id<MMCellModel>)cellModel
 {
     if ([cellModel isKindOfClass:[MMInfoItem3 class]]) {
-        MMInfoItem3 *item = cellModel;
+        MMInfoItem3 *item = (MMInfoItem3 *)cellModel;
         self.titleLabel.text = item.n_title;
         self.dateLabel.text = item.date;
     }
@@ -30,6 +30,5 @@
 
     // Configure the view for the selected state
 }
-
 
 @end

@@ -8,6 +8,7 @@
 
 #import "MMInfoCell2.h"
 #import "MMInfoItem.h"
+#import "NSString+Utility.h"
 
 @implementation MMInfoCell2
 
@@ -19,8 +20,6 @@
         self.dateLabel.text = cm.dateString;
     }
 }
-
-
 
 - (void)awakeFromNib {
     // Initialization code
@@ -45,6 +44,7 @@
 - (void)parseItem:(MMInfoItem *)item
 {
     self.Class = [MMInfoCell2 class];
+    self.height = 115;
     
     // cell model 数据的处理在这里
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -55,19 +55,22 @@
     self.dateString = [dateFormatter stringFromDate:date];
     
     self.title = [NSString stringWithFormat:@"标题:%@", item.n_title];
-    
-    self.height = 115;
+}
+
+- (void)setTitle:(NSString *)title
+{
+    _title = title;
+    [self calculateHeight];
 }
 
 - (float)calculateHeight
 {
-    /**
-     *  计算高度
-     */
+    CGSize size = [self.title em_sizeWithFont:[UIFont systemFontOfSize:17.0f] constrainedToSize:CGSizeMake(304, NSUIntegerMax)];
     
-    
+    self.height = 34 + floor(size.height);
     return self.height;
 }
+
 
 
 @end

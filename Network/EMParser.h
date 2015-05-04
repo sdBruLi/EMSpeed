@@ -11,7 +11,8 @@
 @protocol EMParser <NSObject>
 
 @required
-- (instancetype)parse:(NSDictionary *)info options:(NSUInteger)options;
+
+- (instancetype)parse:(NSDictionary *)info options:(NSUInteger)options; // 子类需要实现的方法
 
 @optional
 + (instancetype)instanceWithData:(NSDictionary *)info options:(NSUInteger)options;

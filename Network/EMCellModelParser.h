@@ -14,7 +14,7 @@
 
 @optional
 
-+ (id<MMCellModel>)cellModelWithData:(NSDictionary *)info cellClass:(Class)cls;
-+ (NSMutableArray *)cellModelsWithArray:(NSArray *)infos cellClass:(Class)cls;
++ (id<MMCellModel>)cellModelWithData:(NSDictionary *)info cellModelClass:(Class)cls;
++ (NSMutableArray *)cellModelsWithArray:(NSArray *)infos cellModelClass:(Class)cls;
 
 @end

@@ -1,23 +1,23 @@
 //
-//  MMVIPTableController.m
+//  MMVIPTableViewController.m
 //  MMTableViewDemo
 //
-//  Created by Mac mini 2012 on 15-2-28.
+//  Created by Samuel on 15/4/30.
 //  Copyright (c) 2015年 Mac mini 2012. All rights reserved.
 //
 
-#import "MMVIPTableController.h"
+#import "MMVIPTableViewController.h"
 #import "EMVIPModel.h"
 
-@interface MMVIPTableController ()
+@interface MMVIPTableViewController ()
 
 @end
 
-@implementation MMVIPTableController
+@implementation MMVIPTableViewController
 
-- (id)init
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super init];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
     }
     
@@ -27,14 +27,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
-    UIView *footerBGView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 30)];
-    UILabel *footerLabel = [self footerTipLabel];
-    footerLabel.frame = CGRectMake(0, 0, self.view.frame.size.width-24, 30);
-    [footerBGView addSubview:footerLabel];
-    self.tableView.tableHeaderView = footerBGView;
     
-    
+    self.tableView.tableHeaderView = [self headerView];
     self.enableRefreshFooter = YES;
     self.tableView.footer.hidden = YES;
 }
@@ -53,8 +47,7 @@
 - (void)headerRefreshing
 {
     if (_model == nil) {
-        EMVIPModel *model = [[EMVIPModel alloc] initWithTitle:@"vip资讯" Id:15 url:@"http://t.emoney.cn/platform/information/vipnews"];
-        _model = model;
+        _model = [[EMVIPModel alloc] initWithTitle:@"vip资讯" Id:15 url:@"http://t.emoney.cn/platform/information/vipnews"];
     }
     
     NSString *url = ((EMVIPModel *)_model).dataSource.refreshURL && [((EMVIPModel *)_model).dataSource.refreshURL length]>0 ? ((EMVIPModel *)_model).dataSource.refreshURL : ((EMVIPModel *)_model).url;
@@ -63,17 +56,15 @@
         if (success && ((EMVIPModel *)_model).dataSource) {
             [self reloadPages:((EMVIPModel *)_model).dataSource];
         }
-        else{
-//            [self loadEmptyView];
-        }
         
-        if (![((EMVIPModel *)_model).dataSource.nextPageURL length]>0) {
-            self.tableView.footer.hidden = YES;
-        }
-        else {
+        if ([((EMVIPModel *)_model).dataSource.nextPageURL length]>0) {
+            
             if (self.tableView.footer.hidden) {
                 self.tableView.footer.hidden = NO;;
             }
+        }
+        else {
+            self.tableView.footer.hidden = YES;
         }
         
         [self.tableView.header endRefreshing];
@@ -102,6 +93,15 @@
     }
 }
 
+- (UIView *)headerView
+{
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, EMScreenWidth(), 30)];
+    UILabel *footerLabel = [self footerTipLabel];
+    footerLabel.frame = CGRectMake(0, 0, EMScreenWidth()-24, 30);
+    [headerView addSubview:footerLabel];
+    
+    return headerView;
+}
 
 - (UILabel *)footerTipLabel
 {
@@ -114,6 +114,5 @@
     label.text            = @"以上选股结果为盘中更新";
     return label;
 }
-
 
 @end

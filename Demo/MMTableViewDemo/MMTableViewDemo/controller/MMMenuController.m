@@ -10,7 +10,8 @@
 #import "MMInfoViewController.h"
 #import "MMVIPTableController.h"
 #import "MMInfoModel.h"
-
+#import "MMInfoTableViewController.h"
+#import "MMVIPTableViewController.h"
 
 @interface MMMenuController ()
 
@@ -32,14 +33,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 4;
+    return [[self rowTitles] count];
 }
 
 - (NSArray *)rowTitles{
     static NSArray *__titles = nil;
     
     if (__titles==nil) {
-        __titles = @[@"cellModel 风格1", @"cellModel 风格2", @"item 风格3", @"vip资讯支持上拉下拉刷新"];
+        __titles = @[@"cellModel 风格1", @"cellModel 风格2", @"item 风格3", @"vip资讯支持上拉下拉刷新", @"从xib创建",  @"从xib创建 支持上下拉刷新"];
     }
     
     return __titles;
@@ -89,6 +90,19 @@
     else if (indexPath.row==3) {
         vc = [[MMVIPTableController alloc] init];
     }
+    else if (indexPath.row==4) {
+        vc = [[MMInfoTableViewController alloc] initWithNibName:@"MMInfoTableViewController" bundle:nil];
+        vc.title = [[self rowTitles] objectAtIndex:indexPath.row];
+        [self.navigationController pushViewController:vc animated:YES];
+        return;
+    }
+    else if (indexPath.row==5) {
+        vc = [[MMVIPTableViewController alloc] initWithNibName:@"MMVIPTableViewController" bundle:nil];
+        vc.title = [[self rowTitles] objectAtIndex:indexPath.row];
+        [self.navigationController pushViewController:vc animated:YES];
+        return;
+    }
+    
     
     vc.title = [[self rowTitles] objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
