@@ -10,105 +10,164 @@
 #import "MMMutableDataSource.h"
 #import "EMInfoNewsItem.h"
 
-NSString *infoNewsIDStringWithObject(id obj);
+static NSString *kVIPNewsTitle = @"VIP资讯";
+static NSString *kInfoNewsPullRefreshKey = @"refresh";
+static NSString *kInfoNewsNextPageURLKey = @"more";
+
+
+NSString *InfoNewsIDStringWithObject(id obj);
 
 @implementation EMVIPModel
 
 - (id)initWithTitle:(NSString *)title
                  Id:(int)Id
-                url:(NSString *)url
+                URL:(NSString *)URL
 {
     self = [super init];
     if (self) {
         self.title = title;
         self.Id = Id;
-        self.url = url;
+        self.URL = URL;
     }
     
     return self;
 }
 
-- (AFHTTPRequestOperation *)modelWithUrl:(NSString *)url block:(void (^)(id, AFHTTPRequestOperation *, BOOL))block
+- (AFHTTPRequestOperation *)modelWithURL:(NSString *)URL block:(void (^)(id, AFHTTPRequestOperation *, BOOL))block
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
-    return [manager POST:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [self parseURLResponse:responseObject url:url];
+    return [manager POST:URL parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self parseURLResponse:responseObject URL:URL];
         block(responseObject, operation, YES);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         block(nil, operation, NO);
     }];
 }
 
-- (BOOL)parseURLResponse:(NSDictionary*)dictionary url:(NSString *)url
+- (NSMutableArray *)originItems
+{
+    NSMutableArray *existItems = nil;
+    
+    MMMutableDataSource *ds = (MMMutableDataSource *)self.dataSource;
+    if ([ds itemsAtSectionWithTitle:kVIPNewsTitle]) {
+        NSArray *items = [ds itemsAtSectionWithTitle:kVIPNewsTitle];
+        existItems = [NSMutableArray arrayWithArray:items];
+    }
+    
+    if (existItems==nil) {
+        existItems = [NSMutableArray array];
+    }
+    
+    return existItems;
+}
+
+- (NSMutableArray *)appendItemsWithOriginItems:(NSMutableArray *)originItems
+                       response:(NSDictionary *)dictionary
+                            URL:(NSString *)URL
+{
+    NSArray *newsInfos = [dictionary objectForKey:@"news"];
+    
+    if ([newsInfos count] <= 0) {
+        return originItems;
+    }
+    
+    if (originItems == nil) {
+        originItems = [NSMutableArray array];
+    }
+    
+    NSMutableArray *results = [NSMutableArray arrayWithArray:originItems];
+    BOOL isPullRefresh = [URL rangeOfString:@"topid"].location != NSNotFound;
+    NSArray *newsItems = [EMInfoNewsItem parseArray:newsInfos];
+    
+    if (isPullRefresh) {
+        // 刷新的插入方式是反的
+        NSEnumerator *enumerator = [newsItems reverseObjectEnumerator];
+        newsItems = [NSMutableArray arrayWithArray:[enumerator allObjects]];
+    }
+    
+    [results addObjectsFromArray:newsItems];
+    
+    return results;
+}
+
+- (NSString *)nextPageURLWithDictionary:(NSDictionary *)dictionary
+                                    URL:(NSString *)URL
+                      originNextPageURL:(NSString *)nextPageURL
+{
+    NSString *moreID = InfoNewsIDStringWithObject([dictionary objectForKey:kInfoNewsNextPageURLKey]);
+    if ([moreID length] <= 0) {
+        return nextPageURL;
+    }
+    
+    NSString *resultURL = nil;
+    
+    if ([moreID length]>0) {
+        if ([moreID isEqualToString:@"-1"]) {
+            resultURL = nil;
+        }
+        else{
+            resultURL = [NSString stringWithFormat:@"%@?lastid=%@", self.URL, moreID];
+        }
+    }
+    else{
+        resultURL = nextPageURL;
+    }
+    
+    return resultURL;
+}
+
+- (NSString *)pullRefreshURLWithDictionary:(NSDictionary *)dictionary
+                                       URL:(NSString *)URL
+                      originPullRefreshURL:(NSString *)originPullRefreshURL
+{
+    NSString *refreshID = InfoNewsIDStringWithObject([dictionary objectForKey:kInfoNewsPullRefreshKey]);
+    if ([refreshID length] <= 0) {
+        return originPullRefreshURL;
+    }
+    
+    NSString *resultURL = nil;
+    if ([refreshID length]>0) {
+        resultURL = [NSString stringWithFormat:@"%@?topid=%@", self.URL, refreshID];
+    }
+    else{
+        resultURL = originPullRefreshURL;
+    }
+    
+    return resultURL;
+}
+
+
+
+- (BOOL)parseURLResponse:(NSDictionary*)dictionary URL:(NSString *)URL
 {
     if (dictionary==nil || [[dictionary allKeys] count]<=0) {
         return NO;
     }
     
-    BOOL isRefresh = [url rangeOfString:@"topid"].location != NSNotFound;
-    NSString *refreshID = infoNewsIDStringWithObject([dictionary objectForKey:@"refresh"]);
-    NSString *moreID = infoNewsIDStringWithObject([dictionary objectForKey:@"more"]);
+    // 1. 取出老的数据
+    NSMutableArray *items = [self originItems];
     
+    // 2. 插入新的数据
+    items = [self appendItemsWithOriginItems:items
+                                    response:dictionary
+                                         URL:URL];
     
-    NSMutableArray *vipNewsItems = nil;
-    NSString *newsTitle = @"VIP资讯";
+    // 3. 获取下一页URL
+    NSString *nextPageURL = [self nextPageURLWithDictionary:dictionary
+                                                        URL:URL
+                                          originNextPageURL:_dataSource.nextPageURL];
     
-    MMMutableDataSource *ds = (MMMutableDataSource *)self.dataSource;
-    if ([ds itemsAtSectionWithTitle:newsTitle]) {
-        vipNewsItems = [NSMutableArray arrayWithArray:[ds itemsAtSectionWithTitle:newsTitle]];
-    }
+    // 4. 获取下拉刷新URL
+    NSString *pullRefreshURL = [self pullRefreshURLWithDictionary:dictionary
+                                                              URL:URL
+                                             originPullRefreshURL:_dataSource.pullRefreshURL];
     
-    if (vipNewsItems==nil) {
-        vipNewsItems = [NSMutableArray array];
-    }
-    
-    // VIP新闻
-    NSArray *vip = nil;
-    if (isRefresh) {
-        vip = [NSArray arrayWithArray:[[[dictionary objectForKey:@"news"] reverseObjectEnumerator] allObjects]];
-    }
-    else{
-        vip = [dictionary objectForKey:@"news"];
-    }
-    
-    if (vip && [vip count]>0) {
-        for (int i=0; i<[vip count]; i++) {
-            NSDictionary *dict = [vip objectAtIndex:i];
-            EMInfoNewsItem *tmp = [[EMInfoNewsItem alloc] initWithDictionary:dict];
-            tmp.jianText = [NSString stringWithFormat:@"%d", i+1];
-            
-            if (isRefresh) {
-                [vipNewsItems insertObject:tmp atIndex:0];
-            }
-            else {
-                [vipNewsItems addObject:tmp];
-            }
-        }
-    }
-    
+    // 5. 创建新的data source
     MMMutableDataSource *dsTmp = [[MMMutableDataSource alloc] init];
-    [dsTmp addNewSection:@"VIP资讯" withItems:vipNewsItems];
-    
-    if ([moreID length]>0) {
-        if ([moreID isEqualToString:@"-1"]) {
-            dsTmp.nextPageURL = nil;
-        }
-        else{
-            dsTmp.nextPageURL = [NSString stringWithFormat:@"%@?lastid=%@", self.url, moreID];
-        }
-    }
-    else{
-        dsTmp.nextPageURL = ds.nextPageURL;
-    }
-    
-    if ([refreshID length]>0) {
-        dsTmp.refreshURL = [NSString stringWithFormat:@"%@?topid=%@", self.url, refreshID];
-    }
-    else{
-        dsTmp.refreshURL = ds.refreshURL;
-    }
-    
+    [dsTmp addNewSection:kVIPNewsTitle withItems:items];
+    dsTmp.nextPageURL = nextPageURL;
+    dsTmp.pullRefreshURL = pullRefreshURL;
     self.dataSource = dsTmp;
     
     return YES;
@@ -118,7 +177,7 @@ NSString *infoNewsIDStringWithObject(id obj);
 @end
 
 
-NSString *infoNewsIDStringWithObject(id obj)
+NSString *InfoNewsIDStringWithObject(id obj)
 {
     if ([obj isKindOfClass:[NSString class]]) {
         return (NSString *)obj;

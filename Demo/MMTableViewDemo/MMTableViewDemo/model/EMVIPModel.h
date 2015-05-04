@@ -14,17 +14,17 @@
 
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, assign) int Id;
-@property (nonatomic, strong) NSString *url;
+@property (nonatomic, strong) NSString *URL;
 @property (nonatomic, strong) MMMutableDataSource *dataSource;
 @property (nonatomic, strong) NSArray *cellIdentifiers;
 @property (nonatomic, assign) id actionDelegate;
 
 - (id)initWithTitle:(NSString *)title
                  Id:(int)Id
-                url:(NSString *)url;
+                URL:(NSString *)URL;
 
-- (AFHTTPRequestOperation *)modelWithUrl:(NSString *)url block:(void (^)(id, AFHTTPRequestOperation *, BOOL))block;
+- (AFHTTPRequestOperation *)modelWithURL:(NSString *)URL block:(void (^)(id, AFHTTPRequestOperation *, BOOL))block;
 // subclass over write
-- (BOOL)parseURLResponse:(NSDictionary*)dictionary url:(NSString*)url;
+- (BOOL)parseURLResponse:(NSDictionary*)dictionary URL:(NSString*)url;
 
 @end

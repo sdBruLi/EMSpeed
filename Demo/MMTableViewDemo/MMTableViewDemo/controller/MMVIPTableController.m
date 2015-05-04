@@ -53,13 +53,13 @@
 - (void)headerRefreshing
 {
     if (_model == nil) {
-        EMVIPModel *model = [[EMVIPModel alloc] initWithTitle:@"vip资讯" Id:15 url:@"http://t.emoney.cn/platform/information/vipnews"];
+        EMVIPModel *model = [[EMVIPModel alloc] initWithTitle:@"vip资讯" Id:15 URL:@"http://t.emoney.cn/platform/information/vipnews"];
         _model = model;
     }
     
-    NSString *url = ((EMVIPModel *)_model).dataSource.refreshURL && [((EMVIPModel *)_model).dataSource.refreshURL length]>0 ? ((EMVIPModel *)_model).dataSource.refreshURL : ((EMVIPModel *)_model).url;
+    NSString *url = ((EMVIPModel *)_model).dataSource.pullRefreshURL && [((EMVIPModel *)_model).dataSource.pullRefreshURL length]>0 ? ((EMVIPModel *)_model).dataSource.pullRefreshURL : ((EMVIPModel *)_model).URL;
     
-    [_model modelWithUrl:url block:^(id respondObject, AFHTTPRequestOperation *operation, BOOL success) {
+    [_model modelWithURL:url block:^(id respondObject, AFHTTPRequestOperation *operation, BOOL success) {
         if (success && ((EMVIPModel *)_model).dataSource) {
             [self reloadPages:((EMVIPModel *)_model).dataSource];
         }
@@ -84,7 +84,7 @@
 - (void)footerRefreshing
 {
     if ([((EMVIPModel *)_model).dataSource.nextPageURL length]>0) {
-        [_model modelWithUrl:((EMVIPModel *)_model).dataSource.nextPageURL block:^(id respondObject, AFHTTPRequestOperation *operation, BOOL success) {
+        [_model modelWithURL:((EMVIPModel *)_model).dataSource.nextPageURL block:^(id respondObject, AFHTTPRequestOperation *operation, BOOL success) {
             if (success && ((EMVIPModel *)_model).dataSource) {
                 [self reloadPages:((EMVIPModel *)_model).dataSource];
             }

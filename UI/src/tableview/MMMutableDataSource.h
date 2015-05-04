@@ -19,7 +19,7 @@
 /**
  *  下拉刷新的url
  */
-@property (nonatomic, copy) NSString *refreshURL;
+@property (nonatomic, copy) NSString *pullRefreshURL;
 
 /**
  *  上拉刷新的url

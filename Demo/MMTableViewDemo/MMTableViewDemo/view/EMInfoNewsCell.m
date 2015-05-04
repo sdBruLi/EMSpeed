@@ -22,7 +22,7 @@
 	return self;
 }
 
-- (void)update:(id<MMCellModel>)cellModel
+- (void)update:(id<MMCellModel>)cellModel indexPath:(NSIndexPath *)indexPath
 {
     if ([cellModel isKindOfClass:[EMInfoNewsItem class]]) {
         
@@ -30,7 +30,7 @@
         self.titleLabel.text = item.title;
         self.contentLabel.text = item.summary;
         self.timeLabel.text = item.date;
-        self.jianLabel.text = item.jianText;
+        self.jianLabel.text = [NSString stringWithFormat:@"%ld", indexPath.row+1];
     }
 }
 

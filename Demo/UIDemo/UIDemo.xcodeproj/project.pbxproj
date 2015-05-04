@@ -181,6 +181,7 @@
 		1865EF801AE8EB360081866A /* EMThemeTextSegmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1865EF7B1AE8EB360081866A /* EMThemeTextSegmentCell.m */; };
 		1865EF831AE8F4990081866A /* EMSrollSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 1865EF821AE8F4990081866A /* EMSrollSegmentedControl.m */; };
 		1865EF861AE9CACE0081866A /* EMThemeSrollSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 1865EF851AE9CACE0081866A /* EMThemeSrollSegmentedControl.m */; };
+		96B9F1051AF704E1003A8228 /* MMTableEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96B9F1041AF704E1003A8228 /* MMTableEmptyView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -547,6 +548,8 @@
 		1865EF821AE8F4990081866A /* EMSrollSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMSrollSegmentedControl.m; sourceTree = "<group>"; };
 		1865EF841AE9CACE0081866A /* EMThemeSrollSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMThemeSrollSegmentedControl.h; sourceTree = "<group>"; };
 		1865EF851AE9CACE0081866A /* EMThemeSrollSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMThemeSrollSegmentedControl.m; sourceTree = "<group>"; };
+		96B9F1031AF704E1003A8228 /* MMTableEmptyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTableEmptyView.h; sourceTree = "<group>"; };
+		96B9F1041AF704E1003A8228 /* MMTableEmptyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTableEmptyView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -897,6 +900,8 @@
 				1865EDF81AE790F90081866A /* MMTableController.m */,
 				1865EDF91AE790F90081866A /* MMTableViewController.h */,
 				1865EDFA1AE790F90081866A /* MMTableViewController.m */,
+				96B9F1031AF704E1003A8228 /* MMTableEmptyView.h */,
+				96B9F1041AF704E1003A8228 /* MMTableEmptyView.m */,
 			);
 			path = tableview;
 			sourceTree = "<group>";
@@ -1351,6 +1356,7 @@
 				1865EF6A1AE8E0630081866A /* EMTextSegmentCell.m in Sources */,
 				1865EF801AE8EB360081866A /* EMThemeTextSegmentCell.m in Sources */,
 				1865EF1F1AE7929E0081866A /* EMMultiPagingViewViewController.m in Sources */,
+				96B9F1051AF704E1003A8228 /* MMTableEmptyView.m in Sources */,
 				1865EF1A1AE7929E0081866A /* EMBorderViewViewController.m in Sources */,
 				1865EE681AE790F90081866A /* EMPopupViewManager.m in Sources */,
 				1865EF2A1AE7929E0081866A /* EMCollectionViewTestCell2.m in Sources */,
