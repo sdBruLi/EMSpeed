@@ -11,6 +11,7 @@
 #import "EMThemeStatusBarIconTextModel.h"
 #import "EMThemeStatusBarTextModel.h"
 #import "EMThemeActivityIndicatorTextModel.h"
+#import "EMContext.h"
 
 @interface EMStatusBarWindowViewController ()
 
@@ -63,7 +64,7 @@
 {
     EMThemeStatusBarIconTextModel *bar1 = [[EMThemeStatusBarIconTextModel alloc] init];
     bar1.title = @"Hello, 我是一个带有图标的标题";
-    bar1.iconName = @"radio_on.png";
+    bar1.iconName = EMUIResName(@"radio_on.png");
     [EMStatusBarWindow showStatusBarWithModel:bar1];
 }
 

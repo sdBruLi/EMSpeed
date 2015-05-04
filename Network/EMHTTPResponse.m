@@ -13,7 +13,7 @@
 
 + (instancetype)responseWithResponseObject:(NSDictionary *)responseObject {
     
-    if (![EMHTTPResponse isStandardResponse:responseObject]) {
+    if (![EMHTTPResponse isEMStandardResponse:responseObject]) {
         return nil;
     }
     
@@ -26,7 +26,7 @@
 }
 
 
-+ (BOOL)isStandardResponse:(id)responseObject
++ (BOOL)isEMStandardResponse:(id)responseObject
 {
     if ([responseObject isKindOfClass:[NSDictionary class]]
         && responseObject[@"status"]

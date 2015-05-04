@@ -19,12 +19,12 @@
 
 
 /**
- *  判断是否为标准的格式, 字典包含status, updatetime, data字段
+ *  判断是否为EM标准的JSON数据返回格式, 字典包含status, updatetime, data字段
  *
  *  @param responseObject 输入需要判断的对象
  *
  *  @return 是否
  */
-+ (BOOL)isStandardResponse:(id)responseObject;
++ (BOOL)isEMStandardResponse:(id)responseObject;
 
 @end

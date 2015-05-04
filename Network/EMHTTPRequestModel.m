@@ -9,6 +9,8 @@
 #import "EMHTTPRequestModel.h"
 #import "EMHTTPResponse.h"
 
+static AFHTTPRequestOperationManager *__EMHTTPRequestModelNetworkManager = nil;
+
 @implementation EMHTTPRequestModel
 
 - (instancetype)init
@@ -21,11 +23,30 @@
     return self;
 }
 
+
++ (void)setNetworkManager:(AFHTTPRequestOperationManager *)networkManager
+{
+    if (networkManager && [networkManager isKindOfClass:[AFHTTPRequestOperationManager class]]) {
+        __EMHTTPRequestModelNetworkManager = networkManager;
+    }
+}
+
+
++ (AFHTTPRequestOperationManager *)networkManager
+{
+    if (__EMHTTPRequestModelNetworkManager == nil) {
+        __EMHTTPRequestModelNetworkManager = [AFHTTPRequestOperationManager manager];
+    }
+    
+    return __EMHTTPRequestModelNetworkManager;
+}
+
+
 - (AFHTTPRequestOperation *)GET:(NSString *)URLString
                           param:(NSDictionary *)param
                           block:(void (^)(id respondObject, AFHTTPRequestOperation *operation, BOOL success))block
 {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    AFHTTPRequestOperationManager *manager = [[self class] networkManager];
     
     return [manager GET:URLString parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         BOOL flag = [self parseResponseObject:responseObject URL:URLString];
@@ -35,11 +56,12 @@
     }];
 }
 
+
 - (AFHTTPRequestOperation *)POST:(NSString *)URLString
                            param:(NSDictionary *)param
                            block:(void (^)(id respondObject, AFHTTPRequestOperation *operation, BOOL success))block
 {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    AFHTTPRequestOperationManager *manager = [[self class] networkManager];
     
     return [manager POST:URLString parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         BOOL flag = [self parseResponseObject:responseObject URL:URLString];
@@ -49,10 +71,11 @@
     }];
 }
 
+
 - (BOOL)parseResponseObject:(id)responseObject
                         URL:(NSString *)URLString
 {
-    if ([EMHTTPResponse isStandardResponse:responseObject]) {
+    if ([EMHTTPResponse isEMStandardResponse:responseObject]) {
         EMHTTPResponse *response = [EMHTTPResponse responseWithResponseObject:responseObject];
         return [self parseHTTPResponse:response URL:URLString];
     }

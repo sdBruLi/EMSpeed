@@ -8,6 +8,7 @@
 
 #import "UIImage+theme.h"
 #import "EMThemeManager.h"
+#import "EMThemeDownloadManager.h"
 
 @implementation UIImage(theme)
 
