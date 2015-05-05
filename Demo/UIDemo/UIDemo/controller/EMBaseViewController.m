@@ -16,9 +16,7 @@
 @implementation EMBaseViewController
 
 - (void)viewDidLoad {
-    // add some code here
-    int index = 0;
-    
+    //111
     [super viewDidLoad];
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
     {
