@@ -101,6 +101,48 @@ NSString *const EMStocklistCellHighlightedNotification = @"EMStocklistCellHighli
     [self loadTableView];
 }
 
+- (UITableView *)createTitleTableView
+{
+    UITableView *titleTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height) style:UITableViewStylePlain];
+    titleTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    titleTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+    titleTableView.contentInset = UIEdgeInsetsZero;
+    titleTableView.backgroundView = nil;
+    titleTableView.backgroundColor = [UIColor clearColor];
+    titleTableView.showsVerticalScrollIndicator = NO;
+    [titleTableView setDataSource:self];
+    [titleTableView setDelegate:self];
+    
+    return titleTableView;
+}
+
+- (UITableView *)createContentTableView
+{
+    UITableView *contentTableView = [[UITableView alloc] init];
+    contentTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    contentTableView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+    contentTableView.contentInset = UIEdgeInsetsZero;
+    contentTableView.backgroundView = nil;
+    contentTableView.backgroundColor = [UIColor clearColor];
+    contentTableView.showsHorizontalScrollIndicator = NO;
+    contentTableView.showsVerticalScrollIndicator = NO;
+    contentTableView.autoresizesSubviews = YES;
+    [contentTableView setDataSource:self];
+    [contentTableView setDelegate:self];
+    
+    return contentTableView;
+}
+
+- (UIScrollView *)createContentScrollView
+{
+    UIScrollView *contentScrollView = [[UIScrollView alloc] init];
+    contentScrollView.backgroundColor = [UIColor clearColor];
+    contentScrollView.showsHorizontalScrollIndicator = NO;
+    [contentScrollView setDelegate:self];
+    
+    return contentScrollView;
+}
+
 /**
  *创建tableView
  *视图层次，做nameTableView，右priceTableView，priceTableView 上加载priceTableView。
@@ -109,37 +151,23 @@ NSString *const EMStocklistCellHighlightedNotification = @"EMStocklistCellHighli
 - (void)loadTableView
 {
     CGFloat nameWidth = kStockListNameWidth;
-    _titleTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, _stockListView.bounds.size.width, _stockListView.bounds.size.height) style:UITableViewStylePlain];
-    _titleTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-    _titleTableView.contentInset = UIEdgeInsetsZero;
-    _titleTableView.backgroundView = nil;
-    _titleTableView.backgroundColor = [UIColor clearColor];
-	_titleTableView.showsVerticalScrollIndicator = NO;
-	[_titleTableView setDataSource:self];
-	[_titleTableView setDelegate:self];
     
-    _contentTableView = [[UITableView alloc] init];
-    _contentTableView.contentInset = UIEdgeInsetsZero;
-	_contentTableView.autoresizesSubviews = YES;
-    _contentTableView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
-    _contentTableView.backgroundView = nil;
-    _contentTableView.backgroundColor = [UIColor clearColor];
-	_contentTableView.showsHorizontalScrollIndicator = NO;
-	_contentTableView.showsVerticalScrollIndicator = NO;
-    [_contentTableView setDataSource:self];
-	[_contentTableView setDelegate:self];
-    
-    _titleTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    _contentTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
-    _contentScrollView = [[UIScrollView alloc] init];
-    _contentScrollView.backgroundColor = [UIColor clearColor];
-	_contentScrollView.showsHorizontalScrollIndicator = NO;
-	[_contentScrollView setDelegate:self];
+    _titleTableView = [self createTitleTableView];
+    _contentTableView = [self createContentTableView];
+    _contentScrollView = [self createContentScrollView];
     
     [_stockListView addSubview:_titleTableView];
     [_stockListView addSubview:_contentScrollView];
     [_contentScrollView addSubview:_contentTableView];
+    [_stockListView addSubview:_contentScrollView];
+    
+    
+    [_stockListView addSubview:_titleTableView];
+    [_stockListView addSubview:_contentTableView];
+    [_contentScrollView addSubview:_contentTableView];
+    
+    
+    
     
     //增加左右提示
     CGSize tipSize = CGSizeMake(10, 24);

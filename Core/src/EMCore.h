@@ -9,7 +9,6 @@
 
 #import "EMCoreMacros.h"
 #import "EMCoreMetrics.h"
-#import "EMCorePaths.h"
 #import "EMCoreFunction.h"
 #import "EMCoreSDKAvailability.h"
 #import "EMCoreFileManager.h"

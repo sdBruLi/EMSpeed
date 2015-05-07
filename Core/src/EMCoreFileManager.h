@@ -233,12 +233,57 @@ extern "C" {
     
     
     /**
-     *  设置默认的图片路径
+     *  根据bundle名+相对路径
      *
-     *  @param directory 文件夹名
+     *  @param bundle       bundle名称
+     *  @param relativePath 相对路径
      *
+     *  @return bundle名+相对路径
      */
-    void EMSetDefaultImageDirectory(NSString *directory);
+    NSString* EMPathForMainBundleResource(NSString* relativePath);
+    
+    
+    /**
+     *  根据bundle名+相对路径
+     *
+     *  @param bundle       bundle名称
+     *  @param relativePath 相对路径
+     *
+     *  @return bundle名+相对路径
+     */
+    NSString* EMPathForBundleResource(NSBundle* bundle, NSString* relativePath);
+    
+    
+    /**
+     *  Documents文件夹下文件绝对路径
+     *
+     *  @param relativePath 相对路径
+     *
+     *  @return Documents文件夹路径 + 相对路径
+     */
+    NSString* EMPathForDocumentsResource(NSString* relativePath);
+    
+    
+    /**
+     *  Library文件夹下文件绝对路径
+     *
+     *  @param relativePath 相对路径
+     *
+     *  @return Library文件夹路径 + 相对路径
+     */
+    NSString* EMPathForLibraryResource(NSString* relativePath);
+    
+    
+    /**
+     *  Caches文件夹下文件绝对路径
+     *
+     *  @param relativePath 相对路径
+     *
+     *  @return Caches文件夹路径 + 相对路径
+     */
+    NSString* EMPathForCachesResource(NSString* relativePath);
+    
+    
     
     
 #ifdef __cplusplus

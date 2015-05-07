@@ -29,7 +29,7 @@ NSString *const EMStocklistCellHighlightedNotification;
 @protocol EMListProtocol <EMModelProtocol>
 
 @property (nonatomic, assign) CGFloat cellHeight;
-@property (nonatomic, assign) BOOL reloading;
+@property (nonatomic, assign, getter=isReloading) BOOL reloading;
 @property (nonatomic, assign) BOOL didNeedsRequest;
 
 @required

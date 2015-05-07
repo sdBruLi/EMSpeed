@@ -35,7 +35,6 @@
 		1865ED821AE790EC0081866A /* EMCoreFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1865ED6F1AE790EC0081866A /* EMCoreFileManager.m */; };
 		1865ED831AE790EC0081866A /* EMCoreFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 1865ED711AE790EC0081866A /* EMCoreFunction.m */; };
 		1865ED841AE790EC0081866A /* EMCoreMetrics.m in Sources */ = {isa = PBXBuildFile; fileRef = 1865ED741AE790EC0081866A /* EMCoreMetrics.m */; };
-		1865ED851AE790EC0081866A /* EMCorePaths.m in Sources */ = {isa = PBXBuildFile; fileRef = 1865ED761AE790EC0081866A /* EMCorePaths.m */; };
 		1865ED861AE790EC0081866A /* EMCoreSDKAvailability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1865ED781AE790EC0081866A /* EMCoreSDKAvailability.m */; };
 		1865EE461AE790F90081866A /* NSString+Drawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 1865ED8A1AE790F90081866A /* NSString+Drawing.m */; };
 		1865EE471AE790F90081866A /* UIAlert+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 1865ED8C1AE790F90081866A /* UIAlert+Custom.m */; };
@@ -257,8 +256,6 @@
 		1865ED721AE790EC0081866A /* EMCoreMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCoreMacros.h; sourceTree = "<group>"; };
 		1865ED731AE790EC0081866A /* EMCoreMetrics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCoreMetrics.h; sourceTree = "<group>"; };
 		1865ED741AE790EC0081866A /* EMCoreMetrics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMCoreMetrics.m; sourceTree = "<group>"; };
-		1865ED751AE790EC0081866A /* EMCorePaths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCorePaths.h; sourceTree = "<group>"; };
-		1865ED761AE790EC0081866A /* EMCorePaths.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMCorePaths.m; sourceTree = "<group>"; };
 		1865ED771AE790EC0081866A /* EMCoreSDKAvailability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCoreSDKAvailability.h; sourceTree = "<group>"; };
 		1865ED781AE790EC0081866A /* EMCoreSDKAvailability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMCoreSDKAvailability.m; sourceTree = "<group>"; };
 		1865ED891AE790F90081866A /* NSString+Drawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Drawing.h"; sourceTree = "<group>"; };
@@ -723,8 +720,6 @@
 				1865ED721AE790EC0081866A /* EMCoreMacros.h */,
 				1865ED731AE790EC0081866A /* EMCoreMetrics.h */,
 				1865ED741AE790EC0081866A /* EMCoreMetrics.m */,
-				1865ED751AE790EC0081866A /* EMCorePaths.h */,
-				1865ED761AE790EC0081866A /* EMCorePaths.m */,
 				1865ED771AE790EC0081866A /* EMCoreSDKAvailability.h */,
 				1865ED781AE790EC0081866A /* EMCoreSDKAvailability.m */,
 			);
@@ -1383,7 +1378,6 @@
 				1865EE981AE790F90081866A /* UIImage+MultiFormat.m in Sources */,
 				1865EECF1AE790FF0081866A /* EMThemeActivityIndicatorTextStatusBar.m in Sources */,
 				1865EF191AE7929E0081866A /* EMBaseViewController.m in Sources */,
-				1865ED851AE790EC0081866A /* EMCorePaths.m in Sources */,
 				1865EE901AE790F90081866A /* SDWebImageCompat.m in Sources */,
 				1865EE791AE790F90081866A /* MMTableViewController.m in Sources */,
 				1860E10A1AEDFEB60050E633 /* UIView+Genie.m in Sources */,
