@@ -28,29 +28,5 @@
 - (NSString *)em_URLDecodedString;
 
 
-/**
- *  获取时间戳
- *
- *  @return 时间戳字符串
- */
-+ (NSString *)em_generateTimestamp;
-
-
-/**
- *  生成一个UUID
- *
- *  @return UUID字符串
- */
-+ (NSString *)em_generateUUID;
-
-
-/**
- *  url根据&和=号, 解成字典
- *
- *  @return 字典
- */
-- (NSDictionary *)em_toResponseDictionary;
-
-
 @end
 

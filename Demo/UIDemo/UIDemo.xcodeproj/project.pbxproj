@@ -27,7 +27,6 @@
 		1865ED791AE790EC0081866A /* NSString+GTM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1865ED5B1AE790EC0081866A /* NSString+GTM.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1865ED7A1AE790EC0081866A /* NSDate+String.m in Sources */ = {isa = PBXBuildFile; fileRef = 1865ED5D1AE790EC0081866A /* NSDate+String.m */; };
 		1865ED7B1AE790EC0081866A /* NSObject+Reflect.m in Sources */ = {isa = PBXBuildFile; fileRef = 1865ED5F1AE790EC0081866A /* NSObject+Reflect.m */; };
-		1865ED7C1AE790EC0081866A /* NSString+Format.m in Sources */ = {isa = PBXBuildFile; fileRef = 1865ED611AE790EC0081866A /* NSString+Format.m */; };
 		1865ED7D1AE790EC0081866A /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 1865ED631AE790EC0081866A /* NSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1865ED7E1AE790EC0081866A /* NSString+Pinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = 1865ED651AE790EC0081866A /* NSString+Pinyin.m */; };
 		1865ED7F1AE790EC0081866A /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 1865ED671AE790EC0081866A /* NSString+URLEncoding.m */; };
@@ -182,6 +181,10 @@
 		1865EF831AE8F4990081866A /* EMSrollSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 1865EF821AE8F4990081866A /* EMSrollSegmentedControl.m */; };
 		1865EF861AE9CACE0081866A /* EMThemeSrollSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 1865EF851AE9CACE0081866A /* EMThemeSrollSegmentedControl.m */; };
 		96B9F1051AF704E1003A8228 /* MMTableEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96B9F1041AF704E1003A8228 /* MMTableEmptyView.m */; };
+		96C86A761AFB37A8005F6E75 /* EMMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C86A751AFB37A8005F6E75 /* EMMessage.m */; };
+		96C86A7C1AFB3BC5005F6E75 /* NSDate+Formatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C86A7B1AFB3BC5005F6E75 /* NSDate+Formatter.m */; };
+		96D7EBBD1AF9FD26005F386B /* EMStockListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D7EBBC1AF9FD26005F386B /* EMStockListViewController.m */; };
+		96D7EBC01AFA01CF005F386B /* EMPriceHeaderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D7EBBF1AFA01CF005F386B /* EMPriceHeaderButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -236,8 +239,6 @@
 		1865ED5D1AE790EC0081866A /* NSDate+String.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+String.m"; sourceTree = "<group>"; };
 		1865ED5E1AE790EC0081866A /* NSObject+Reflect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Reflect.h"; sourceTree = "<group>"; };
 		1865ED5F1AE790EC0081866A /* NSObject+Reflect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Reflect.m"; sourceTree = "<group>"; };
-		1865ED601AE790EC0081866A /* NSString+Format.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Format.h"; sourceTree = "<group>"; };
-		1865ED611AE790EC0081866A /* NSString+Format.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Format.m"; sourceTree = "<group>"; };
 		1865ED621AE790EC0081866A /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
 		1865ED631AE790EC0081866A /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
 		1865ED641AE790EC0081866A /* NSString+Pinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Pinyin.h"; sourceTree = "<group>"; };
@@ -550,6 +551,14 @@
 		1865EF851AE9CACE0081866A /* EMThemeSrollSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMThemeSrollSegmentedControl.m; sourceTree = "<group>"; };
 		96B9F1031AF704E1003A8228 /* MMTableEmptyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTableEmptyView.h; sourceTree = "<group>"; };
 		96B9F1041AF704E1003A8228 /* MMTableEmptyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTableEmptyView.m; sourceTree = "<group>"; };
+		96C86A741AFB37A8005F6E75 /* EMMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMMessage.h; sourceTree = "<group>"; };
+		96C86A751AFB37A8005F6E75 /* EMMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMMessage.m; sourceTree = "<group>"; };
+		96C86A7A1AFB3BC5005F6E75 /* NSDate+Formatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Formatter.h"; sourceTree = "<group>"; };
+		96C86A7B1AFB3BC5005F6E75 /* NSDate+Formatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Formatter.m"; sourceTree = "<group>"; };
+		96D7EBBB1AF9FD26005F386B /* EMStockListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMStockListViewController.h; sourceTree = "<group>"; };
+		96D7EBBC1AF9FD26005F386B /* EMStockListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMStockListViewController.m; sourceTree = "<group>"; };
+		96D7EBBE1AFA01CF005F386B /* EMPriceHeaderButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMPriceHeaderButton.h; sourceTree = "<group>"; };
+		96D7EBBF1AFA01CF005F386B /* EMPriceHeaderButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMPriceHeaderButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -687,10 +696,10 @@
 				1865ED631AE790EC0081866A /* NSString+HTML.m */,
 				1865ED5C1AE790EC0081866A /* NSDate+String.h */,
 				1865ED5D1AE790EC0081866A /* NSDate+String.m */,
+				96C86A7A1AFB3BC5005F6E75 /* NSDate+Formatter.h */,
+				96C86A7B1AFB3BC5005F6E75 /* NSDate+Formatter.m */,
 				1865ED5E1AE790EC0081866A /* NSObject+Reflect.h */,
 				1865ED5F1AE790EC0081866A /* NSObject+Reflect.m */,
-				1865ED601AE790EC0081866A /* NSString+Format.h */,
-				1865ED611AE790EC0081866A /* NSString+Format.m */,
 				1865ED641AE790EC0081866A /* NSString+Pinyin.h */,
 				1865ED651AE790EC0081866A /* NSString+Pinyin.m */,
 				1865ED661AE790EC0081866A /* NSString+URLEncoding.h */,
@@ -750,6 +759,8 @@
 				1865ED941AE790F90081866A /* UITableView+CellAction.m */,
 				1865ED951AE790F90081866A /* UIView+AutoLayout.h */,
 				1865ED961AE790F90081866A /* UIView+AutoLayout.m */,
+				96C86A741AFB37A8005F6E75 /* EMMessage.h */,
+				96C86A751AFB37A8005F6E75 /* EMMessage.m */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -778,6 +789,10 @@
 				1865EDB51AE790F90081866A /* EMRadioControl.m */,
 				1865EDB61AE790F90081866A /* EMRoundButton.h */,
 				1865EDB71AE790F90081866A /* EMRoundButton.m */,
+				96D7EBBB1AF9FD26005F386B /* EMStockListViewController.h */,
+				96D7EBBC1AF9FD26005F386B /* EMStockListViewController.m */,
+				96D7EBBE1AFA01CF005F386B /* EMPriceHeaderButton.h */,
+				96D7EBBF1AFA01CF005F386B /* EMPriceHeaderButton.m */,
 				1865EDB81AE790F90081866A /* EMUI.h */,
 				1865EDB91AE790F90081866A /* EMUIResources.bundle */,
 				1865EDBA1AE790F90081866A /* multiPaging */,
@@ -1330,6 +1345,7 @@
 				1865EE4B1AE790F90081866A /* UITableView+CellAction.m in Sources */,
 				1865EE931AE790F90081866A /* SDWebImageDownloaderOperation.m in Sources */,
 				1865EF3F1AE8821D0081866A /* EMSegmentedControl.m in Sources */,
+				96D7EBBD1AF9FD26005F386B /* EMStockListViewController.m in Sources */,
 				1860E0F61AE9EAE80050E633 /* UIAwesomeButton.m in Sources */,
 				1865EF1E1AE7929E0081866A /* EMMenuViewController.m in Sources */,
 				1865EE891AE790F90081866A /* MJRefreshLegendFooter.m in Sources */,
@@ -1339,6 +1355,7 @@
 				1865EEEB1AE791960081866A /* RNThemeLabel.m in Sources */,
 				1865ED7F1AE790EC0081866A /* NSString+URLEncoding.m in Sources */,
 				1865EE7F1AE790F90081866A /* UIFont+FontAwesome.m in Sources */,
+				96C86A7C1AFB3BC5005F6E75 /* NSDate+Formatter.m in Sources */,
 				1865EF221AE7929E0081866A /* EMStatusBarWindowViewController.m in Sources */,
 				1865EE8B1AE790F90081866A /* UIScrollView+MJExtension.m in Sources */,
 				1865EE5D1AE790F90081866A /* EMMultiPagingView.m in Sources */,
@@ -1387,7 +1404,6 @@
 				1865EEC71AE790FF0081866A /* EMThemeManager.m in Sources */,
 				1865EE5E1AE790F90081866A /* EMPageItem.m in Sources */,
 				1865EEF01AE791960081866A /* UIColor+HexString.m in Sources */,
-				1865ED7C1AE790EC0081866A /* NSString+Format.m in Sources */,
 				1865EE951AE790F90081866A /* SDWebImagePrefetcher.m in Sources */,
 				1865EECE1AE790FF0081866A /* EMThemeActivityIndicatorTextModel.m in Sources */,
 				1865EF231AE7929E0081866A /* EMMenuItem.m in Sources */,
@@ -1435,11 +1451,13 @@
 				1865EE971AE790F90081866A /* UIImage+GIF.m in Sources */,
 				1865ED861AE790EC0081866A /* EMCoreSDKAvailability.m in Sources */,
 				1865EE8E1AE790F90081866A /* NSData+ImageContentType.m in Sources */,
+				96C86A761AFB37A8005F6E75 /* EMMessage.m in Sources */,
 				1865EF1C1AE7929E0081866A /* EMCollectionPagingViewController.m in Sources */,
 				1865EE571AE790F90081866A /* EMContext.m in Sources */,
 				1865EE711AE790F90081866A /* EMStatusBarUpdating.m in Sources */,
 				1865EE461AE790F90081866A /* NSString+Drawing.m in Sources */,
 				1860E1041AEDFDDC0050E633 /* EMSingleGuideView.m in Sources */,
+				96D7EBC01AFA01CF005F386B /* EMPriceHeaderButton.m in Sources */,
 				1860E10F1AEE34540050E633 /* EMGuideScrollImageCell.m in Sources */,
 				1865EF211AE7929E0081866A /* EMRoundButtonViewController.m in Sources */,
 				1865EF181AE7929E0081866A /* EMArrowButtonController.m in Sources */,

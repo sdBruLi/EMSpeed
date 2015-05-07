@@ -7,18 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-
-/**
- 常用的一些转换类型
- */
-typedef NS_ENUM(NSUInteger, EMDateStringType) {
-    EMDateStringDefault,    // MM月dd日 HH:mm
-    EMDateStringDay,        // MM月dd日
-    EMDateStringTime,       // HH:mm
-    EMDateStringYear,       // YYYY年MM月dd日
-    EMDateStringFull,       // YYYY年MM月dd日 HH:mm
-};
+#import "NSDate+Formatter.h"
 
 /**
  *  日期和字符串 互相转化
@@ -27,19 +16,11 @@ typedef NS_ENUM(NSUInteger, EMDateStringType) {
 
 
 /**
- *  date转字符串 MM月dd日 HH:mm
- *
- *  @return 返回字符串
- */
-+ (NSString *)em_dateDescription;
-
-
-/**
  *  date转字符串  MM月dd日 HH:mm
  *
  *  @return 返回字符串
  */
-- (NSString *)em_stringFromDate;
+- (NSString *)em_dateString;
 
 
 /**
@@ -53,25 +34,25 @@ typedef NS_ENUM(NSUInteger, EMDateStringType) {
 
 
 /**
- *  字符串转date, 根据常用的type
+ *  字符串转date, 根据常用的style
  *
- *  @param dateType 日期格式类型
+ *  @param dateStyle 日期格式类型
  *
  *  @return 字符串
  */
-- (NSString *)em_stringWithDateType:(EMDateStringType)dateType;
+- (NSString *)em_dateStringWithStyle:(EMDateFormatterStyle)style;
 
 
 /**
- *  string转date, 根据常用的type
+ *  string转date, 根据常用的style
  *
  *  @param string   字符串
- *  @param dateType 日期格式类型
+ *  @param dateStyle 日期格式类型
  *
  *  @return 日期
  */
 + (NSDate *)em_dateWithString:(NSString *)string
-                         type:(EMDateStringType)dateType;
+                        style:(EMDateFormatterStyle)style;
 
 
 /**
@@ -83,9 +64,9 @@ typedef NS_ENUM(NSUInteger, EMDateStringType) {
  *
  *  @return 字符串
  */
-- (NSString *)em_stringWithDateFormate:(NSString *)formate
-                              amSymbol:(NSString *)amSymbol
-                              pmSymbol:(NSString *)pmSymbol;
+- (NSString *)em_dateStringWithFormatter:(NSString *)formate
+                                amSymbol:(NSString *)amSymbol
+                                pmSymbol:(NSString *)pmSymbol;
 
 
 @end

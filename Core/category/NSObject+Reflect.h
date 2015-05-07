@@ -29,7 +29,7 @@
  *
  *  @return 是否成功
  */
-- (BOOL)em_reflectDataFromOtherDictionary:(NSDictionary*)dict;
+- (BOOL)em_reflectDataFromOtherDictionary:(NSDictionary*)dictionary;
 
 
 /**

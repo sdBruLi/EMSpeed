@@ -12,7 +12,7 @@
 
 static NSString *__defaultImageDirectory = nil; // 默认的图片文件夹路径
 
-
+NSString* EMGetDefaultImageDirectory();
 
 
 NSURL* EMFileURL(NSString *path)
@@ -145,6 +145,17 @@ NSData *EMFileManagerFileAtPath(NSString *filePath)
 }
 
 
+NSString* EMGetDefaultImageDirectory()
+{
+    if (__defaultImageDirectory==nil) {
+        __defaultImageDirectory = EMPathForCachesResource(@"/pic");
+        EMFileManagerCreateDirectory(__defaultImageDirectory);
+    }
+    
+    return __defaultImageDirectory;
+}
+
+
 BOOL EMFileManagerSaveImage(NSString *filename, UIImage *image)
 {
     NSData *data = nil;
@@ -160,16 +171,6 @@ BOOL EMFileManagerSaveImage(NSString *filename, UIImage *image)
     return EMFileManagerSaveFile(filePath, data);
 }
 
-
-NSString* EMGetDefaultImageDirectory()
-{
-    if (__defaultImageDirectory==nil) {
-        __defaultImageDirectory = EMPathForCachesResource(@"/pic");
-        EMFileManagerCreateDirectory(__defaultImageDirectory);
-    }
-    
-    return __defaultImageDirectory;
-}
 
 
 void EMSetDefaultImageDirectory(NSString *directory)
@@ -189,5 +190,4 @@ UIImage* EMFileManagerLoadImage(NSString *filename)
     
     return [UIImage imageWithContentsOfFile:filePath];
 }
-
 

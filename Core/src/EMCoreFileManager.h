@@ -152,7 +152,7 @@ extern "C" {
     
     
     /**
-     *  保存图片到默认路径下
+     *  保存图片到/caches/pic路径下
      *
      *  @param filename 文件名
      *  @param image 图片名
@@ -239,16 +239,6 @@ extern "C" {
      *
      */
     void EMSetDefaultImageDirectory(NSString *directory);
-    
-    
-    /**
-     *  获取默认的图片路径
-     *
-     *  @return 默认的图片路径
-     *
-     */
-    NSString* EMGetDefaultImageDirectory();
-    
     
     
 #ifdef __cplusplus

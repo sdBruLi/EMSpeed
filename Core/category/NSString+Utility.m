@@ -98,6 +98,90 @@
 }
 
 
++ (NSString *)em_stringWithFlowLength:(int)flowLen
+{
+    NSString *des = @"Bytes";
+    double _size = (double)flowLen;
+    //    //转化未kb
+    //    if(_size > 1024)
+    //    {
+    _size = _size / 1024.0;
+    des = @"KB";
+    //    }
+    //转化为M
+    if(_size > 1024)
+    {
+        _size = _size / 1024.0;
+        des = @"MB";
+    }
+    //    //转换为G
+    //    if(_size > 1024)
+    //    {
+    //        _size = _size / 1024.0;
+    //        des = @"G";
+    //    }
+    //
+    //    //转换为T
+    //    if(_size > 1024)
+    //    {
+    //        _size = _size / 1024.0;
+    //        des = @"T";
+    //    }
+    return[NSString stringWithFormat:@"%.2f%@",_size,des];
+    
+}
+
+
+- (NSString *)em_phoneFormatterString
+{
+    if (self.length > 7)
+    {
+        return [NSString stringWithFormat:@"%@-%@-%@",[self substringToIndex:3],
+                [self substringWithRange:NSMakeRange(3, self.length - 7)],
+                [self substringFromIndex:self.length-4]];
+    }
+    else
+    {
+        return self;
+    }
+}
+
+
+#pragma mark 获得时间戳
++ (NSString *)em_generateTimestamp
+{
+    return [NSString stringWithFormat:@"%ld", time(NULL)];
+}
+
+
+#pragma mark 获得随时字符串
++ (NSString *)em_generateUUID
+{
+    CFUUIDRef theUUID = CFUUIDCreate(NULL);
+    CFStringRef string = CFUUIDCreateString(NULL, theUUID);
+    return (__bridge NSString *)string;
+}
+
+
+- (NSDictionary *)em_toResponseDictionary
+{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    NSArray *arr1 = [self componentsSeparatedByString:@"&"];
+    
+    for (int i = 0; i < [arr1 count]; i++)
+    {
+        NSString *sub = [arr1 objectAtIndex:i];
+        NSArray *arr2 = [sub componentsSeparatedByString:@"="];
+        if ([arr2 count]>=2) {
+            NSString *key = [arr2 objectAtIndex:0];
+            NSString *value = [arr2 objectAtIndex:1];
+            [dict setObject:value forKey:key];
+        }
+    }
+    return dict;
+}
+
+
 @end
 
 

@@ -71,5 +71,49 @@
 - (BOOL)em_isPhoneNumber;
 
 
+/**
+ *  将流量字符串转化, 流量值(byte), 转化为带K,M,G,T的字符串, 例如1204 -> 1KB
+ *
+ *  @param flowLen 流量值(byte)
+ *
+ *  @return 转换后的字符串
+ */
++ (NSString *)em_stringWithFlowLength:(int)length;
+
+
+/**
+ *  纯数字电话号码, 转换为带-号的电话号码格式
+ *
+ *  @return 电话号码格式字符串
+ */
+- (NSString *)em_phoneFormatterString;
+
+
+/**
+ *  获取时间戳
+ *
+ *  @return 时间戳字符串
+ */
++ (NSString *)em_generateTimestamp;
+
+
+/**
+ *  生成一个UUID
+ *
+ *  @return UUID字符串
+ */
++ (NSString *)em_generateUUID;
+
+
+
+/**
+ *  url根据&和=号, 解成字典
+ *
+ *  @return 字典
+ */
+- (NSDictionary *)em_toResponseDictionary;
+
+
+
 @end
 
