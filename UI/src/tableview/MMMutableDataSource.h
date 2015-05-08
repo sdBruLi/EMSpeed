@@ -45,7 +45,7 @@
  */
 - (void)insertSection:(NSString *)section
                 items:(NSArray *)items
-       atSectionIndex:(int)sectionIndex;
+       atSectionIndex:(NSUInteger)sectionIndex;
 
 
 /**
@@ -70,7 +70,7 @@
  *
  *  @param section section
  */
-- (void)removeSection:(int)section;
+- (void)removeSection:(NSUInteger)section;
 
 
 /**
@@ -79,7 +79,7 @@
  *  @param items   列表数据内容
  *  @param section section的下标
  */
-- (void)appendItems:(NSArray *)items atSection:(int)section;
+- (void)appendItems:(NSArray *)items atSection:(NSUInteger)section;
 
 
 /**
@@ -98,7 +98,7 @@
  *
  *  @return 列表数据内容的个数
  */
-- (NSUInteger)numberOfItemsAtSection:(int)section;
+- (NSUInteger)numberOfItemsAtSection:(NSUInteger)section;
 
 @end
 

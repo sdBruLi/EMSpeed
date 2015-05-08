@@ -122,12 +122,12 @@
     return nil;
 }
 
-- (id<MMCellModel>)itemAtIndex:(int)index
+- (id<MMCellModel>)itemAtIndex:(NSUInteger)index
 {
     return [self itemAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
 }
 
-- (NSString *)titleAtSection:(int)section
+- (NSString *)titleAtSection:(NSUInteger)section
 {
     assert(section>=0 && section<[_sections count]);
     return [_sections objectAtIndex:section];
@@ -162,9 +162,9 @@
     return nil;
 }
 
-- (NSUInteger)numberOfItemsAtSection:(int)section
+- (NSUInteger)numberOfItemsAtSection:(NSUInteger)section
 {
-    if (section>=0 && section<[_sections count]) {
+    if (section<[_sections count]) {
         NSArray *items = [_items objectAtIndex:section];
         return [items count];
     }

@@ -38,10 +38,9 @@
 
 - (void)insertSection:(NSString *)section
                 items:(NSArray *)items
-       atSectionIndex:(int)index
+       atSectionIndex:(NSUInteger)index
 {
-    if (section==nil || items==nil || index<0
-        || ([_sections count]>0 && index>=[_sections count])) {
+    if (section==nil || items==nil || ([_sections count]>0 && index>=[_sections count])) {
         return;
     }
     
@@ -104,20 +103,20 @@
     }
 }
 
-- (void)removeSection:(int)section
+- (void)removeSection:(NSUInteger)section
 {
-    if (section>=0 && [_items count]>section) {
+    if ([_items count]>section) {
         [_items removeObjectAtIndex:section];
         [_sections removeObjectAtIndex:section];
     }
 }
 
-- (void)appendItems:(NSArray *)items atSection:(int)section
+- (void)appendItems:(NSArray *)items atSection:(NSUInteger)section
 {
     if ([self.sections count]==0 && section==0) {
         [self addNewSection:@"" withItems:items];
     }
-    else if ([items count]>0 && section >=0 && section <= [_sections count]-1) {
+    else if ([items count]>0 && section <= [_sections count]-1) {
         id originItems = [_items objectAtIndex:section];
         if ([originItems isKindOfClass:[NSArray class]]) {
             NSMutableArray *tmpItems = [NSMutableArray array];
@@ -150,9 +149,9 @@
     return count;
 }
 
-- (NSUInteger)numberOfItemsAtSection:(int)section
+- (NSUInteger)numberOfItemsAtSection:(NSUInteger)section
 {
-    if (section>=0 && section<[_sections count]) {
+    if (section<[_sections count]) {
         NSArray *items = [_items objectAtIndex:section];
         return [items count];
     }

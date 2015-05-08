@@ -6,7 +6,7 @@
 //  Copyright (c) 2014年 flora. All rights reserved.
 //
 
-#import "EMStockListViewController.h"
+#import "EMScrollableListViewController.h"
 #import "EMBorderView.h"
 #import "UIView+autoLayout.h"
 #import "UIImage+FontAwesome.h"
@@ -16,38 +16,19 @@
 #import "EMPriceHeaderButton.h"
 #import "MMCellModel.h"
 #import "MMCellUpdating.h"
+#import "EMScrollableCellProtocol.h"
 
 
 #define kStockListNameWidth 90
 #define kStocklistHeaderHeight 30
+#define kScrollTipLabelSize CGSizeMake(10, 24)
 
-NSString *const EMStocklistCellSelectedNotification = @"EMStocklistCellSelectedNotification";
-NSString *const EMStocklistCellHighlightedNotification = @"EMStocklistCellHighlightedNotification";
-
-
-@implementation EMScrollableList
-
-
-@end
-
-
-@implementation EMStockListModel
-
-- (BOOL)didNeedsRefreshData
-{
-    return YES;
-}
-
-- (CGFloat)refreshInterval
-{
-    return 6.f;//[EMUserCustomData sharedData].refreshInterval;
-}
-
-@end
+NSString *const EMScrollableListCellSelectedNotification = @"EMStocklistCellSelectedNotification";
+NSString *const EMScrollableListCellHighlightedNotification = @"EMStocklistCellHighlightedNotification";
 
 
 
-@interface EMStockListViewController ()
+@interface EMScrollableListViewController ()
 {
 }
 @property (nonatomic, assign) CGFloat nameWidth;
@@ -55,7 +36,7 @@ NSString *const EMStocklistCellHighlightedNotification = @"EMStocklistCellHighli
 
 @end
 
-@implementation EMStockListViewController
+@implementation EMScrollableListViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -74,10 +55,11 @@ NSString *const EMStocklistCellHighlightedNotification = @"EMStocklistCellHighli
     self = [super init];
     if (self) {
         
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didCellChangeSelectStatus:) name:EMStocklistCellSelectedNotification object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didCellChangeHighligtedStatus:) name:EMStocklistCellHighlightedNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didCellChangeSelectStatus:) name:EMScrollableListCellSelectedNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didCellChangeHighligtedStatus:) name:EMScrollableListCellHighlightedNotification object:nil];
         
         self.nameWidth = kStockListNameWidth;
+        _scrollableList = [[EMScrollableList alloc] init];
     }
     return self;
 }
@@ -93,6 +75,7 @@ NSString *const EMStocklistCellHighlightedNotification = @"EMStocklistCellHighli
     
     _stockListView = [[UIView alloc] init];
     [self.view addSubview:_stockListView];
+    _stockListView.backgroundColor = [UIColor blueColor];
     
     [_stockListView setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.view em_addConstraintsWithContentInsets:_contentInsets subView:_stockListView];
@@ -150,38 +133,64 @@ NSString *const EMStocklistCellHighlightedNotification = @"EMStocklistCellHighli
  */
 - (void)loadTableView
 {
-    CGFloat nameWidth = kStockListNameWidth;
-    
     _titleTableView = [self createTitleTableView];
     _contentTableView = [self createContentTableView];
     _contentScrollView = [self createContentScrollView];
+    _scrollTipImageViewLeft = [self createLeftScrollTipLabel];
+    _scrollTipImageViewRight = [self createRightScrollTipLabel];
     
     [_stockListView addSubview:_titleTableView];
-    [_stockListView addSubview:_contentScrollView];
     [_contentScrollView addSubview:_contentTableView];
     [_stockListView addSubview:_contentScrollView];
-    
-    
-    [_stockListView addSubview:_titleTableView];
-    [_stockListView addSubview:_contentTableView];
-    [_contentScrollView addSubview:_contentTableView];
-    
-    
-    
-    
-    //增加左右提示
-    CGSize tipSize = CGSizeMake(10, 24);
-    CGFloat originY = .5 * (kStocklistHeaderHeight - tipSize.height);
-    _scrollTipImageViewRight = [self scrollTipLabel:FAIconAngleRight];
-    _scrollTipImageViewRight.frame = CGRectMake(_stockListView.frame.size.width - tipSize.width, originY, tipSize.width, tipSize.height);
+    [_stockListView addSubview:_scrollTipImageViewLeft];
     [_stockListView addSubview:_scrollTipImageViewRight];
     
-    _scrollTipImageViewLeft = [self scrollTipLabel:FAIconAngleLeft];
-    _scrollTipImageViewLeft.frame = CGRectMake(nameWidth-tipSize.width, originY, tipSize.width, tipSize.height);
-    [_stockListView addSubview:_scrollTipImageViewLeft];
-    _scrollTipImageViewLeft.hidden = YES;
+    [self registerTableViewCell];
+    [self setViewLayouts];
+}
+
+- (void)registerTableViewCell
+{
+    [_titleTableView registerNib:[UINib nibWithNibName:@"EMNameListCell" bundle:nil] forCellReuseIdentifier:@"EMNameListCell"];
+    [_contentTableView registerNib:[UINib nibWithNibName:@"EMContentListCell" bundle:nil] forCellReuseIdentifier:@"EMContentListCell"];
+}
+
+- (UILabel *)createLeftScrollTipLabel
+{
+    CGSize tipSize = kScrollTipLabelSize;
+    CGFloat originY = .5 * (kStocklistHeaderHeight - tipSize.height);
+    UILabel *scrollTipImageViewLeft = [self scrollTipLabel:FAIconAngleLeft];
+    scrollTipImageViewLeft.frame = CGRectMake(kStockListNameWidth-tipSize.width, originY, tipSize.width, tipSize.height);
+    scrollTipImageViewLeft.hidden = YES;
     
-    //layout
+    return scrollTipImageViewLeft;
+}
+
+- (UILabel *)createRightScrollTipLabel
+{
+    CGSize tipSize = kScrollTipLabelSize;
+    CGFloat originY = .5 * (kStocklistHeaderHeight - tipSize.height);
+    UILabel *scrollTipImageViewRight = [self scrollTipLabel:FAIconAngleRight];
+    scrollTipImageViewRight.frame = CGRectMake(self.view.frame.size.width - tipSize.width, originY, tipSize.width, tipSize.height);
+    
+    return scrollTipImageViewRight;
+}
+
+- (UILabel *)scrollTipLabel:(FAIcon)faicon
+{
+    UILabel *label = [[UILabel alloc] init];
+    label.backgroundColor = [UIColor whiteColor];
+    label.textColor = [UIColor blackColor];;
+    label.text = [NSString fontAwesomeIconStringForEnum:faicon];
+    label.font = [UIFont fontAwesomeFontOfSize:24];
+    return label;
+}
+
+- (void)setViewLayouts
+{
+    CGSize tipSize = CGSizeMake(10, 24);
+    CGFloat originY = .5 * (kStocklistHeaderHeight - tipSize.height);
+    
     [_contentScrollView setTranslatesAutoresizingMaskIntoConstraints:NO];
     [_scrollTipImageViewRight setTranslatesAutoresizingMaskIntoConstraints:NO];
     
@@ -198,18 +207,15 @@ NSString *const EMStocklistCellHighlightedNotification = @"EMStocklistCellHighli
                                                                                 metrics:nil
                                                                                   views:NSDictionaryOfVariableBindings(_scrollTipImageViewRight)]];
     [_stockListView addConstraints:tmpConstraints];
-    [_stockListView em_addConstraintsWithContentInsets:UIEdgeInsetsMake(0, nameWidth, 0, 0)
-                                            subView:_contentScrollView];
+    [_stockListView em_addConstraintsWithContentInsets:UIEdgeInsetsMake(0, kStockListNameWidth, 0, 0)
+                                               subView:_contentScrollView];
 }
 
-- (UILabel *)scrollTipLabel:(FAIcon)faicon
+- (void)viewDidLayoutSubviews
 {
-    UILabel *label = [[UILabel alloc] init];
-    label.backgroundColor = [UIColor whiteColor];
-    label.textColor = [UIColor blackColor];;
-    label.text = [NSString fontAwesomeIconStringForEnum:faicon];
-    label.font = [UIFont fontAwesomeFontOfSize:24];
-    return label;
+    [super viewDidLayoutSubviews];
+    
+    
 }
 
 
@@ -395,7 +401,7 @@ NSString *const EMStocklistCellHighlightedNotification = @"EMStocklistCellHighli
  */
 - (void)didLoadDataSource
 {
-    CGFloat priceWidth = self.nameWidth;//[_stockList calculateWithPriceWidth:_priceScrollView.frame.size.width];
+    CGFloat priceWidth = [_scrollableList calculateContentTableViewWidth:_contentScrollView.frame.size.width];
     CGRect priceRect = _contentTableView.frame;
     priceRect.size.width = priceWidth;
     _contentTableView.frame = priceRect;
@@ -425,16 +431,6 @@ NSString *const EMStocklistCellHighlightedNotification = @"EMStocklistCellHighli
 
 #pragma mark -
 #pragma mark UITableView datasource
-
-- (Class)nameTableViewClass
-{
-    return [_scrollableList titleTableViewClass];
-}
-
-- (Class)priceTableViewClass
-{
-    return [_scrollableList contentTableViewClass];
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -487,7 +483,7 @@ NSString *const EMStocklistCellHighlightedNotification = @"EMStocklistCellHighli
         
         if (cell == nil)
         {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+            cell = [[class alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         }
         
         if ([cell respondsToSelector:@selector(update:indexPath:)]) {
@@ -639,36 +635,31 @@ NSString *const EMStocklistCellHighlightedNotification = @"EMStocklistCellHighli
     }
 }
 
-
 #pragma mark -
-#pragma mark notification
+#pragma mark high light notification
 
 - (void)didCellChangeSelectStatus:(NSNotification *)notification
 {
-    UITableViewCell *currentCell = notification.object;
-    NSInteger row = currentCell.tag;
+    UITableViewCell<EMScrollableCellProtocol> *currentCell = notification.object;
     
-    Class titleClass = [_scrollableList titleTableViewClass];
-    UITableView *otherTableView = [currentCell isKindOfClass:titleClass] ? _contentTableView : _titleTableView;
+    UITableView *otherTableView = currentCell.isTitleTableViewCell ? _contentTableView : _titleTableView;
     
     if (currentCell.selected)
     {
-        [otherTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0] animated:YES scrollPosition:UITableViewScrollPositionNone];
+        [otherTableView selectRowAtIndexPath:currentCell.indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
     }
     else
     {
-        [otherTableView deselectRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0] animated:NO];
+        [otherTableView deselectRowAtIndexPath:currentCell.indexPath animated:NO];
     }
 }
 
 - (void)didCellChangeHighligtedStatus:(NSNotification *)notification
 {
-    UITableViewCell *currentCell = notification.object;
-    NSInteger row = currentCell.tag;
+    UITableViewCell<EMScrollableCellProtocol> *currentCell = notification.object;
+    UITableView *otherTableView = currentCell.isTitleTableViewCell ? _contentTableView : _titleTableView;
     
-    Class titleClass = [_scrollableList titleTableViewClass];
-    UITableView *otherTableView = [currentCell isKindOfClass:titleClass] ? _contentTableView : _titleTableView;
-    UITableViewCell *cell = [otherTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0]];
+    UITableViewCell *cell = [otherTableView cellForRowAtIndexPath:currentCell.indexPath];
 	[cell setHighlighted:currentCell.highlighted];
 }
 

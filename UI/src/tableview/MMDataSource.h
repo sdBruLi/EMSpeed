@@ -51,7 +51,7 @@
  *
  *  @return section标题
  */
-- (NSString *)titleAtSection:(int)section;
+- (NSString *)titleAtSection:(NSUInteger)section;
 
 
 /**
@@ -101,7 +101,7 @@
  *
  *  @return 某个实现MMCellModel 协议的item
  */
-- (id <MMCellModel>)itemAtIndex:(int)index;
+- (id <MMCellModel>)itemAtIndex:(NSUInteger)index;
 
 
 /**
@@ -111,7 +111,7 @@
  *
  *  @return items个数
  */
-- (NSUInteger)numberOfItemsAtSection:(int)section;
+- (NSUInteger)numberOfItemsAtSection:(NSUInteger)section;
 
 
 /**
