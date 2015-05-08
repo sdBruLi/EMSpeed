@@ -27,7 +27,6 @@
 		18309B6A1AEF93BF0057945D /* MMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18309B641AEF93BE0057945D /* MMTableViewController.m */; };
 		18309B901AF072B40057945D /* NSDate+String.m in Sources */ = {isa = PBXBuildFile; fileRef = 18309B721AF072B40057945D /* NSDate+String.m */; };
 		18309B911AF072B40057945D /* NSObject+Reflect.m in Sources */ = {isa = PBXBuildFile; fileRef = 18309B741AF072B40057945D /* NSObject+Reflect.m */; };
-		18309B921AF072B40057945D /* NSString+Format.m in Sources */ = {isa = PBXBuildFile; fileRef = 18309B761AF072B40057945D /* NSString+Format.m */; };
 		18309B931AF072B40057945D /* NSString+GTM.m in Sources */ = {isa = PBXBuildFile; fileRef = 18309B781AF072B40057945D /* NSString+GTM.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		18309B941AF072B40057945D /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 18309B7A1AF072B40057945D /* NSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		18309B951AF072B40057945D /* NSString+Pinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = 18309B7C1AF072B40057945D /* NSString+Pinyin.m */; };
@@ -37,7 +36,6 @@
 		18309B991AF072B40057945D /* EMCoreFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18309B861AF072B40057945D /* EMCoreFileManager.m */; };
 		18309B9A1AF072B40057945D /* EMCoreFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 18309B881AF072B40057945D /* EMCoreFunction.m */; };
 		18309B9B1AF072B40057945D /* EMCoreMetrics.m in Sources */ = {isa = PBXBuildFile; fileRef = 18309B8B1AF072B40057945D /* EMCoreMetrics.m */; };
-		18309B9C1AF072B40057945D /* EMCorePaths.m in Sources */ = {isa = PBXBuildFile; fileRef = 18309B8D1AF072B40057945D /* EMCorePaths.m */; };
 		18309B9D1AF072B40057945D /* EMCoreSDKAvailability.m in Sources */ = {isa = PBXBuildFile; fileRef = 18309B8F1AF072B40057945D /* EMCoreSDKAvailability.m */; };
 		18309BCD1AF086630057945D /* MMInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18309BB01AF086630057945D /* MMInfoViewController.m */; };
 		18309BCE1AF086630057945D /* MMMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18309BB21AF086630057945D /* MMMenuController.m */; };
@@ -134,8 +132,6 @@
 		18309B721AF072B40057945D /* NSDate+String.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+String.m"; sourceTree = "<group>"; };
 		18309B731AF072B40057945D /* NSObject+Reflect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Reflect.h"; sourceTree = "<group>"; };
 		18309B741AF072B40057945D /* NSObject+Reflect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Reflect.m"; sourceTree = "<group>"; };
-		18309B751AF072B40057945D /* NSString+Format.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Format.h"; sourceTree = "<group>"; };
-		18309B761AF072B40057945D /* NSString+Format.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Format.m"; sourceTree = "<group>"; };
 		18309B771AF072B40057945D /* NSString+GTM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GTM.h"; sourceTree = "<group>"; };
 		18309B781AF072B40057945D /* NSString+GTM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+GTM.m"; sourceTree = "<group>"; };
 		18309B791AF072B40057945D /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
@@ -156,8 +152,6 @@
 		18309B891AF072B40057945D /* EMCoreMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCoreMacros.h; sourceTree = "<group>"; };
 		18309B8A1AF072B40057945D /* EMCoreMetrics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCoreMetrics.h; sourceTree = "<group>"; };
 		18309B8B1AF072B40057945D /* EMCoreMetrics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMCoreMetrics.m; sourceTree = "<group>"; };
-		18309B8C1AF072B40057945D /* EMCorePaths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCorePaths.h; sourceTree = "<group>"; };
-		18309B8D1AF072B40057945D /* EMCorePaths.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMCorePaths.m; sourceTree = "<group>"; };
 		18309B8E1AF072B40057945D /* EMCoreSDKAvailability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCoreSDKAvailability.h; sourceTree = "<group>"; };
 		18309B8F1AF072B40057945D /* EMCoreSDKAvailability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMCoreSDKAvailability.m; sourceTree = "<group>"; };
 		18309B9E1AF072E10057945D /* Core-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Core-Prefix.pch"; sourceTree = "<group>"; };
@@ -330,8 +324,6 @@
 				18309B721AF072B40057945D /* NSDate+String.m */,
 				18309B731AF072B40057945D /* NSObject+Reflect.h */,
 				18309B741AF072B40057945D /* NSObject+Reflect.m */,
-				18309B751AF072B40057945D /* NSString+Format.h */,
-				18309B761AF072B40057945D /* NSString+Format.m */,
 				18309B771AF072B40057945D /* NSString+GTM.h */,
 				18309B781AF072B40057945D /* NSString+GTM.m */,
 				18309B791AF072B40057945D /* NSString+HTML.h */,
@@ -359,8 +351,6 @@
 				18309B891AF072B40057945D /* EMCoreMacros.h */,
 				18309B8A1AF072B40057945D /* EMCoreMetrics.h */,
 				18309B8B1AF072B40057945D /* EMCoreMetrics.m */,
-				18309B8C1AF072B40057945D /* EMCorePaths.h */,
-				18309B8D1AF072B40057945D /* EMCorePaths.m */,
 				18309B8E1AF072B40057945D /* EMCoreSDKAvailability.h */,
 				18309B8F1AF072B40057945D /* EMCoreSDKAvailability.m */,
 			);
@@ -648,12 +638,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1835D2F31AF218BF008E4FD8 /* EMHTTPResponse.m in Sources */,
-				18309B921AF072B40057945D /* NSString+Format.m in Sources */,
 				18309B531AEF93B50057945D /* UIScrollView+MJExtension.m in Sources */,
 				18309BD01AF086630057945D /* EMInfoNewsItem.m in Sources */,
 				96BC73901A9F104E0020E5A1 /* AFURLSessionManager.m in Sources */,
 				96BC738D1A9F104E0020E5A1 /* AFURLConnectionOperation.m in Sources */,
-				18309B9C1AF072B40057945D /* EMCorePaths.m in Sources */,
 				18309B4B1AEF93B50057945D /* MJRefreshComponent.m in Sources */,
 				18309B911AF072B40057945D /* NSObject+Reflect.m in Sources */,
 				1835D2F81AF21BA5008E4FD8 /* MMInfoTableViewController.m in Sources */,

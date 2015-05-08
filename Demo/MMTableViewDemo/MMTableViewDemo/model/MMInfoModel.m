@@ -12,13 +12,17 @@
 #import "MMInfoItem.h"
 #import "MMInfoItem3.h"
 #import "EMParseableObject+CellModel.h"
+#import "EMHTTPResponse.h"
 
 @implementation MMInfoModel
 @synthesize dataSource = _dataSource;
 
-- (BOOL)parseResponseObject:(id)responseObject
-                        URL:(NSString *)URLString
+
+- (BOOL)parseHTTPResponse:(EMHTTPResponse *)response
+                      URL:(NSString *)URLString
 {
+    id responseObject = response.responseData;
+    
     if (responseObject && [responseObject isKindOfClass:[NSDictionary class]]) {
         
         NSArray *array = [responseObject objectForKey:@"o"];

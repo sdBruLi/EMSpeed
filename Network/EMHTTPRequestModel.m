@@ -44,54 +44,53 @@ static AFHTTPRequestOperationManager *__EMHTTPRequestModelNetworkManager = nil;
 
 - (AFHTTPRequestOperation *)GET:(NSString *)URLString
                           param:(NSDictionary *)param
-                          block:(void (^)(id respondObject, AFHTTPRequestOperation *operation, BOOL success))block
+                          block:(void (^)(EMHTTPResponse *response, AFHTTPRequestOperation *operation, BOOL success))block
 {
     AFHTTPRequestOperationManager *manager = [[self class] networkManager];
     
     return [manager GET:URLString parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        BOOL flag = [self parseResponseObject:responseObject URL:URLString];
+        
+        EMHTTPResponse *response = [EMHTTPResponse responseWithObject:responseObject];
+        BOOL flag = [self parseHTTPResponse:response URL:URLString];
         block(responseObject, operation, flag);
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        block(nil, operation, NO);
+        
+        EMHTTPResponse *response = [[EMHTTPResponse alloc] init];
+        response.error = error;
+        block(response, operation, NO);
     }];
 }
 
 
 - (AFHTTPRequestOperation *)POST:(NSString *)URLString
                            param:(NSDictionary *)param
-                           block:(void (^)(id respondObject, AFHTTPRequestOperation *operation, BOOL success))block
+                           block:(void (^)(EMHTTPResponse *response, AFHTTPRequestOperation *operation, BOOL success))block
 {
     AFHTTPRequestOperationManager *manager = [[self class] networkManager];
     
     return [manager POST:URLString parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        BOOL flag = [self parseResponseObject:responseObject URL:URLString];
+        
+        EMHTTPResponse *response = [EMHTTPResponse responseWithObject:responseObject];
+        BOOL flag = [self parseHTTPResponse:response URL:URLString];
         block(responseObject, operation, flag);
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        block(nil, operation, NO);
+        
+        EMHTTPResponse *response = [[EMHTTPResponse alloc] init];
+        response.error = error;
+        block(response, operation, NO);
     }];
-}
-
-
-- (BOOL)parseResponseObject:(id)responseObject
-                        URL:(NSString *)URLString
-{
-    if ([EMHTTPResponse isEMStandardResponse:responseObject]) {
-        EMHTTPResponse *response = [EMHTTPResponse responseWithResponseObject:responseObject];
-        return [self parseHTTPResponse:response URL:URLString];
-    }
-    else{
-        NSAssert(0, @"非标准格式, 具体由子类自己重写吧!");
-    }
-    
-    return NO;
 }
 
 
 - (BOOL)parseHTTPResponse:(EMHTTPResponse *)response
                       URL:(NSString *)URLString
 {
+    // 解析 response.responseData
+    
     NSAssert(0, @"子类请自己实现具体内容的解析!");
-    return NO;
+    return response;
 }
 
 @end

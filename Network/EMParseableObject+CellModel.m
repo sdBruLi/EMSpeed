@@ -11,10 +11,10 @@
 
 @implementation EMParseableObject(CellModel)
 
-+ (id<MMCellModel>)cellModelWithData:(NSDictionary *)info
-                           cellModelClass:(Class)cls
++ (id<MMCellModel>)cellModelWithData:(NSDictionary *)dictionary
+                      cellModelClass:(Class)cls
 {
-    EMParseableObject *obj = [self instanceWithData:info];
+    EMParseableObject *obj = [self instanceWithData:dictionary];
     
     id<MMCellModel> cellModel = [[cls alloc] init];
     [cellModel parseItem:obj];
@@ -22,12 +22,12 @@
     return cellModel;
 }
 
-+ (NSMutableArray *)cellModelsWithArray:(NSArray *)infos
++ (NSMutableArray *)cellModelsWithArray:(NSArray *)array
                          cellModelClass:(Class)cls
 {
     NSMutableArray *cellModels = [NSMutableArray array];
     
-    for (NSDictionary *info in infos) {
+    for (NSDictionary *info in array) {
         id<MMCellModel> cellModel = [self cellModelWithData:info cellModelClass:cls];
         [cellModels addObject:cellModel];
     }

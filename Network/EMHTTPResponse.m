@@ -11,12 +11,28 @@
 @implementation EMHTTPResponse
 
 
-+ (instancetype)responseWithResponseObject:(NSDictionary *)responseObject {
-    
-    if (![EMHTTPResponse isEMStandardResponse:responseObject]) {
-        return nil;
++ (instancetype)responseWithObject:(id)object
+{
+    if ([EMHTTPResponse isEMStandardResponse:object]) {
+        return [EMHTTPResponse responseWithResponse:object];
+    }
+    else {
+        return [EMHTTPResponse responseWithResponseObject:object];
     }
     
+    return nil;
+}
+
+
++ (instancetype)responseWithResponseObject:(NSDictionary *)responseObject {
+    EMHTTPResponse *response = [[EMHTTPResponse alloc] init];
+    response.responseData = responseObject;
+    
+    return response;
+}
+
+
++ (instancetype)responseWithResponse:(NSDictionary *)responseObject {
     EMHTTPResponse *response = [[EMHTTPResponse alloc] init];
     response.status = [responseObject[@"status"] integerValue];
     response.updateTime = [[self updateTimeFormatter] dateFromString:responseObject[@"updatetime"]];
@@ -24,6 +40,7 @@
     
     return response;
 }
+
 
 
 + (BOOL)isEMStandardResponse:(id)responseObject

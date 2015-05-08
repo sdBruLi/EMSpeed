@@ -8,23 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@interface EMHTTPResponse : NSObject
+@interface EMHTTPResponse : NSObject {
+    
+}
 
 @property (nonatomic, assign) NSInteger status;
 @property (nonatomic, strong) NSDate *updateTime;
 @property (nonatomic, strong) id responseData; // dictionary or array
+@property (nonatomic, strong) NSError *error;
 
-+ (instancetype)responseWithResponseObject:(NSDictionary *)responseObject;
-
-
-
-/**
- *  判断是否为EM标准的JSON数据返回格式, 字典包含status, updatetime, data字段
- *
- *  @param responseObject 输入需要判断的对象
- *
- *  @return 是否
- */
-+ (BOOL)isEMStandardResponse:(id)responseObject;
++ (instancetype)responseWithObject:(id)object;
 
 @end
