@@ -13,16 +13,6 @@ static AFHTTPRequestOperationManager *__EMHTTPRequestModelNetworkManager = nil;
 
 @implementation EMHTTPRequestModel
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        
-    }
-    
-    return self;
-}
-
 
 + (void)setNetworkManager:(AFHTTPRequestOperationManager *)networkManager
 {

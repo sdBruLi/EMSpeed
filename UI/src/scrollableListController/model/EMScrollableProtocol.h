@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EMModelProtocol.h"
+#import "MMMutableDataSource.h"
 
 @protocol MMCellModel;
 
@@ -16,9 +17,12 @@
 @property (nonatomic, assign) CGFloat cellHeight;
 @property (nonatomic, assign, getter=isReloading) BOOL reloading;
 @property (nonatomic, assign) BOOL didNeedsRequest;
+@property (nonatomic, strong) MMMutableDataSource *titleDataSource;
+@property (nonatomic, strong) MMMutableDataSource *contentDataSource;
+@property (nonatomic, strong) id<MMCellModel> titleHeaderItem;
+@property (nonatomic, strong) id<MMCellModel> contentHeaderItem;
 
 @required
-
 
 - (Class)titleCellClassWithIndexPath:(NSIndexPath *)indexPath;
 - (Class)contentCellClassWithIndexPath:(NSIndexPath *)indexPath;
@@ -35,6 +39,12 @@
 
 - (CGFloat)calculateTitleTableViewWidth:(CGFloat)width;
 - (CGFloat)calculateContentTableViewWidth:(CGFloat)width;
+- (CGFloat)tableViewHeaderHeight;
 
+- (CGFloat)titleCellHeightAtIndex:(NSIndexPath *)indexPath;
+- (CGFloat)contentCellHeightAtIndex:(NSIndexPath *)indexPath;
+
+@optional
+- (BOOL)hasMorePages; // 是否有下一页
 
 @end

@@ -9,12 +9,20 @@
 #import "EMScrollableList.h"
 #import "EMNameListItem.h"
 #import "EMContentListItem.h"
+#import "EMScrollableTableTitleHeaderView.h"
+#import "EMScrollableTableContentHeaderView.h"
+#import "MMCellModel.h"
 
 @implementation EMScrollableList
 
 @synthesize cellHeight;
 @synthesize reloading;
 @synthesize didNeedsRequest;
+@synthesize titleHeaderItem;
+@synthesize contentHeaderItem;
+@synthesize titleDataSource;
+@synthesize contentDataSource;
+
 
 - (instancetype)init
 {
@@ -24,7 +32,7 @@
         self.reloading = NO;
         self.didNeedsRequest = YES;
         
-        int numberOfItems = 10;
+        int numberOfItems = 15;
         NSMutableArray *items = [NSMutableArray array];
         for (int i=0; i<numberOfItems; i++) {
             EMNameListItem *item = [[EMNameListItem alloc] init];
@@ -39,6 +47,8 @@
         }
         self.contentDataSource = [[MMMutableDataSource alloc] initWithItems:@[items] sections:@[@""]];
         
+        self.titleHeaderItem = [[EMScrollableTableTitleHeaderItem alloc] init];
+        self.contentHeaderItem = [[EMScrollableTableContentHeaderItem alloc] init];
     }
     
     return self;
@@ -91,11 +101,6 @@
     return 0;
 }
 
-
-- (id)modelWithBlock:(void (^)(NSOperation *, BOOL))block{
-    return nil;
-}
-
 - (CGFloat)calculateTitleTableViewWidth:(CGFloat)width
 {
     return 90;
@@ -105,4 +110,27 @@
 {
     return 800;
 }
+
+- (CGFloat)tableViewHeaderHeight
+{
+    return MAX(self.titleHeaderItem.height, self.contentHeaderItem.height) ;
+}
+
+- (BOOL)hasMorePages
+{
+    return YES;
+}
+
+- (CGFloat)titleCellHeightAtIndex:(NSIndexPath *)indexPath
+{
+    id<MMCellModel> model = [self.titleDataSource itemAtIndexPath:indexPath];
+    return model.height;
+}
+
+- (CGFloat)contentCellHeightAtIndex:(NSIndexPath *)indexPath
+{
+    id<MMCellModel> model = [self.contentDataSource itemAtIndexPath:indexPath];
+    return model.height;
+}
+
 @end

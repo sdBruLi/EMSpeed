@@ -35,8 +35,10 @@
 + (instancetype)responseWithResponse:(NSDictionary *)responseObject {
     EMHTTPResponse *response = [[EMHTTPResponse alloc] init];
     response.status = [responseObject[@"status"] integerValue];
-    response.updateTime = [[self updateTimeFormatter] dateFromString:responseObject[@"updatetime"]];
+    NSDateFormatter *formatter = [self updateTimeFormatter];
+    response.updateTime = [formatter dateFromString:responseObject[@"updatetime"]];
     response.responseData = responseObject[@"data"];
+    response.message = responseObject[@"message"];
     
     return response;
 }

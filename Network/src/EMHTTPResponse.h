@@ -15,6 +15,7 @@
 @property (nonatomic, assign) NSInteger status;
 @property (nonatomic, strong) NSDate *updateTime;
 @property (nonatomic, strong) id responseData; // dictionary or array
+@property (nonatomic, strong) NSString *message;
 @property (nonatomic, strong) NSError *error;
 
 + (instancetype)responseWithObject:(id)object;
