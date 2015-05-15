@@ -11,14 +11,13 @@
 
 @interface EMParseableObject : NSObject <EMParser>
 
+- (instancetype)mutableObjectFromJSONData;
+- (instancetype)objectFromJSONData;
+
+
 + (NSMutableArray *)parseArray:(NSArray *)array;
 + (instancetype)instanceWithData:(NSDictionary *)info;
 - (instancetype)parse:(NSDictionary *)info;
-
-
-+ (NSMutableArray *)parseArray:(NSArray *)array options:(NSUInteger)options;
-+ (instancetype)instanceWithData:(NSDictionary *)info options:(NSUInteger)options;
-- (instancetype)parse:(NSDictionary *)info options:(NSUInteger)options;
 
 @end
 

@@ -193,6 +193,15 @@
 		96C86ADB1AFC8BEC005F6E75 /* EMNameListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C86ACF1AFC8BEC005F6E75 /* EMNameListCell.m */; };
 		96C86ADC1AFC8BEC005F6E75 /* EMNameListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96C86AD01AFC8BEC005F6E75 /* EMNameListCell.xib */; };
 		96C86ADD1AFC8BEC005F6E75 /* EMPriceHeaderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C86AD21AFC8BEC005F6E75 /* EMPriceHeaderButton.m */; };
+		96C86AE11B00A215005F6E75 /* EMScrollableTableTitleHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C86AE01B00A215005F6E75 /* EMScrollableTableTitleHeaderView.m */; };
+		96C86AE31B00A231005F6E75 /* EMScrollableTableTitleHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96C86AE21B00A231005F6E75 /* EMScrollableTableTitleHeaderView.xib */; };
+		96C86AE71B00A3D4005F6E75 /* EMScrollableTableContentHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C86AE51B00A3D4005F6E75 /* EMScrollableTableContentHeaderView.m */; };
+		96C86AE81B00A3D4005F6E75 /* EMScrollableTableContentHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96C86AE61B00A3D4005F6E75 /* EMScrollableTableContentHeaderView.xib */; };
+		96C86AEB1B032950005F6E75 /* EMRefreshScrollableListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C86AEA1B032950005F6E75 /* EMRefreshScrollableListViewController.m */; };
+		96C86AEE1B033FCD005F6E75 /* EMRefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C86AED1B033FCD005F6E75 /* EMRefreshTableHeaderView.m */; };
+		96C86AF11B043D40005F6E75 /* EMScrollableListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C86AF01B043D40005F6E75 /* EMScrollableListModel.m */; };
+		96C86AF41B04961A005F6E75 /* EMRefreshTableFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C86AF31B04961A005F6E75 /* EMRefreshTableFooterView.m */; };
+		96C86AF71B049911005F6E75 /* EMRefreshTableHeaderViewForSubclass.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C86AF61B049911005F6E75 /* EMRefreshTableHeaderViewForSubclass.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -584,6 +593,22 @@
 		96C86AD11AFC8BEC005F6E75 /* EMPriceHeaderButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMPriceHeaderButton.h; sourceTree = "<group>"; };
 		96C86AD21AFC8BEC005F6E75 /* EMPriceHeaderButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMPriceHeaderButton.m; sourceTree = "<group>"; };
 		96C86ADE1AFC9000005F6E75 /* EMScrollableCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMScrollableCellProtocol.h; sourceTree = "<group>"; };
+		96C86ADF1B00A215005F6E75 /* EMScrollableTableTitleHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMScrollableTableTitleHeaderView.h; sourceTree = "<group>"; };
+		96C86AE01B00A215005F6E75 /* EMScrollableTableTitleHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMScrollableTableTitleHeaderView.m; sourceTree = "<group>"; };
+		96C86AE21B00A231005F6E75 /* EMScrollableTableTitleHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EMScrollableTableTitleHeaderView.xib; sourceTree = "<group>"; };
+		96C86AE41B00A3D4005F6E75 /* EMScrollableTableContentHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMScrollableTableContentHeaderView.h; sourceTree = "<group>"; };
+		96C86AE51B00A3D4005F6E75 /* EMScrollableTableContentHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMScrollableTableContentHeaderView.m; sourceTree = "<group>"; };
+		96C86AE61B00A3D4005F6E75 /* EMScrollableTableContentHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EMScrollableTableContentHeaderView.xib; sourceTree = "<group>"; };
+		96C86AE91B032950005F6E75 /* EMRefreshScrollableListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMRefreshScrollableListViewController.h; sourceTree = "<group>"; };
+		96C86AEA1B032950005F6E75 /* EMRefreshScrollableListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMRefreshScrollableListViewController.m; sourceTree = "<group>"; };
+		96C86AEC1B033FCD005F6E75 /* EMRefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMRefreshTableHeaderView.h; sourceTree = "<group>"; };
+		96C86AED1B033FCD005F6E75 /* EMRefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMRefreshTableHeaderView.m; sourceTree = "<group>"; };
+		96C86AEF1B043D40005F6E75 /* EMScrollableListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMScrollableListModel.h; sourceTree = "<group>"; };
+		96C86AF01B043D40005F6E75 /* EMScrollableListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMScrollableListModel.m; sourceTree = "<group>"; };
+		96C86AF21B04961A005F6E75 /* EMRefreshTableFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMRefreshTableFooterView.h; sourceTree = "<group>"; };
+		96C86AF31B04961A005F6E75 /* EMRefreshTableFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMRefreshTableFooterView.m; sourceTree = "<group>"; };
+		96C86AF51B049911005F6E75 /* EMRefreshTableHeaderViewForSubclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMRefreshTableHeaderViewForSubclass.h; sourceTree = "<group>"; };
+		96C86AF61B049911005F6E75 /* EMRefreshTableHeaderViewForSubclass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMRefreshTableHeaderViewForSubclass.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -929,10 +954,10 @@
 				1865EDF21AE790F90081866A /* MMMutableDataSource.m */,
 				1865EDF31AE790F90081866A /* MMRefreshTableController.h */,
 				1865EDF41AE790F90081866A /* MMRefreshTableController.m */,
-				1865EDF51AE790F90081866A /* MMRefreshTableViewController.h */,
-				1865EDF61AE790F90081866A /* MMRefreshTableViewController.m */,
 				1865EDF71AE790F90081866A /* MMTableController.h */,
 				1865EDF81AE790F90081866A /* MMTableController.m */,
+				1865EDF51AE790F90081866A /* MMRefreshTableViewController.h */,
+				1865EDF61AE790F90081866A /* MMRefreshTableViewController.m */,
 				1865EDF91AE790F90081866A /* MMTableViewController.h */,
 				1865EDFA1AE790F90081866A /* MMTableViewController.m */,
 				96B9F1031AF704E1003A8228 /* MMTableEmptyView.h */,
@@ -1256,6 +1281,8 @@
 			children = (
 				96C86ABB1AFC8BEC005F6E75 /* EMScrollableListViewController.h */,
 				96C86ABC1AFC8BEC005F6E75 /* EMScrollableListViewController.m */,
+				96C86AE91B032950005F6E75 /* EMRefreshScrollableListViewController.h */,
+				96C86AEA1B032950005F6E75 /* EMRefreshScrollableListViewController.m */,
 				96C86ABD1AFC8BEC005F6E75 /* EMStockListViewController.h */,
 				96C86ABE1AFC8BEC005F6E75 /* EMStockListViewController.m */,
 			);
@@ -1265,15 +1292,17 @@
 		96C86ABF1AFC8BEC005F6E75 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				96C86AC31AFC8BEC005F6E75 /* EMNameListItem.h */,
+				96C86AC41AFC8BEC005F6E75 /* EMNameListItem.m */,
 				96C86AC01AFC8BEC005F6E75 /* EMContentListItem.h */,
 				96C86AC11AFC8BEC005F6E75 /* EMContentListItem.m */,
 				96C86AC21AFC8BEC005F6E75 /* EMModelProtocol.h */,
 				96C86AC71AFC8BEC005F6E75 /* EMScrollableProtocol.h */,
 				96C86ADE1AFC9000005F6E75 /* EMScrollableCellProtocol.h */,
-				96C86AC31AFC8BEC005F6E75 /* EMNameListItem.h */,
-				96C86AC41AFC8BEC005F6E75 /* EMNameListItem.m */,
 				96C86AC51AFC8BEC005F6E75 /* EMScrollableList.h */,
 				96C86AC61AFC8BEC005F6E75 /* EMScrollableList.m */,
+				96C86AEF1B043D40005F6E75 /* EMScrollableListModel.h */,
+				96C86AF01B043D40005F6E75 /* EMScrollableListModel.m */,
 				96C86AC81AFC8BEC005F6E75 /* EMStockListModel.h */,
 				96C86AC91AFC8BEC005F6E75 /* EMStockListModel.m */,
 			);
@@ -1291,6 +1320,18 @@
 				96C86ACD1AFC8BEC005F6E75 /* EMContentListCell.xib */,
 				96C86AD11AFC8BEC005F6E75 /* EMPriceHeaderButton.h */,
 				96C86AD21AFC8BEC005F6E75 /* EMPriceHeaderButton.m */,
+				96C86ADF1B00A215005F6E75 /* EMScrollableTableTitleHeaderView.h */,
+				96C86AE01B00A215005F6E75 /* EMScrollableTableTitleHeaderView.m */,
+				96C86AE21B00A231005F6E75 /* EMScrollableTableTitleHeaderView.xib */,
+				96C86AE41B00A3D4005F6E75 /* EMScrollableTableContentHeaderView.h */,
+				96C86AE51B00A3D4005F6E75 /* EMScrollableTableContentHeaderView.m */,
+				96C86AE61B00A3D4005F6E75 /* EMScrollableTableContentHeaderView.xib */,
+				96C86AEC1B033FCD005F6E75 /* EMRefreshTableHeaderView.h */,
+				96C86AED1B033FCD005F6E75 /* EMRefreshTableHeaderView.m */,
+				96C86AF51B049911005F6E75 /* EMRefreshTableHeaderViewForSubclass.h */,
+				96C86AF61B049911005F6E75 /* EMRefreshTableHeaderViewForSubclass.m */,
+				96C86AF21B04961A005F6E75 /* EMRefreshTableFooterView.h */,
+				96C86AF31B04961A005F6E75 /* EMRefreshTableFooterView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1378,6 +1419,7 @@
 				1865ED3E1AE790910081866A /* Main.storyboard in Resources */,
 				1865EE7C1AE790F90081866A /* FontAwesome.ttf in Resources */,
 				1865EE5C1AE790F90081866A /* EMUIResources.bundle in Resources */,
+				96C86AE31B00A231005F6E75 /* EMScrollableTableTitleHeaderView.xib in Resources */,
 				1865EE661AE790F90081866A /* EMErrorPopupView.xib in Resources */,
 				1865ED431AE790910081866A /* LaunchScreen.xib in Resources */,
 				1865EEC41AE790FF0081866A /* black.plist in Resources */,
@@ -1385,6 +1427,7 @@
 				1865EE501AE790F90081866A /* EMImageCollectionViewCell.xib in Resources */,
 				96C86ADA1AFC8BEC005F6E75 /* EMContentListCell.xib in Resources */,
 				1865EE821AE790F90081866A /* MJRefresh.bundle in Resources */,
+				96C86AE81B00A3D4005F6E75 /* EMScrollableTableContentHeaderView.xib in Resources */,
 				96C86ADC1AFC8BEC005F6E75 /* EMNameListCell.xib in Resources */,
 				1865ED401AE790910081866A /* Images.xcassets in Resources */,
 				1865EF291AE7929E0081866A /* EMCollectionViewTestCell.xib in Resources */,
@@ -1422,6 +1465,7 @@
 				1865EE751AE790F90081866A /* MMMutableDataSource.m in Sources */,
 				1865EE4B1AE790F90081866A /* UITableView+CellAction.m in Sources */,
 				1865EE931AE790F90081866A /* SDWebImageDownloaderOperation.m in Sources */,
+				96C86AE71B00A3D4005F6E75 /* EMScrollableTableContentHeaderView.m in Sources */,
 				1865EF3F1AE8821D0081866A /* EMSegmentedControl.m in Sources */,
 				1860E0F61AE9EAE80050E633 /* UIAwesomeButton.m in Sources */,
 				1865EF1E1AE7929E0081866A /* EMMenuViewController.m in Sources */,
@@ -1438,6 +1482,7 @@
 				1865EE8B1AE790F90081866A /* UIScrollView+MJExtension.m in Sources */,
 				1865EE5D1AE790F90081866A /* EMMultiPagingView.m in Sources */,
 				1865EE5F1AE790F90081866A /* EMPageImageView.m in Sources */,
+				96C86AEE1B033FCD005F6E75 /* EMRefreshTableHeaderView.m in Sources */,
 				1865EE771AE790F90081866A /* MMRefreshTableViewController.m in Sources */,
 				1865EE871AE790F90081866A /* MJRefreshGifHeader.m in Sources */,
 				1860E0F41AE9EAE80050E633 /* PPiFlatSegmentedControl.m in Sources */,
@@ -1476,6 +1521,7 @@
 				1865EE921AE790F90081866A /* SDWebImageDownloader.m in Sources */,
 				1865EE4C1AE790F90081866A /* UIView+AutoLayout.m in Sources */,
 				1865EEC91AE790FF0081866A /* EMThemeBorderView.m in Sources */,
+				96C86AEB1B032950005F6E75 /* EMRefreshScrollableListViewController.m in Sources */,
 				1865ED7E1AE790EC0081866A /* NSString+Pinyin.m in Sources */,
 				1860E1031AEDFDDC0050E633 /* EMGuideScrollView.m in Sources */,
 				1865EE8D1AE790F90081866A /* UIView+MJExtension.m in Sources */,
@@ -1501,6 +1547,7 @@
 				1865EE6D1AE790F90081866A /* EMIconTextStatusBar.m in Sources */,
 				1865EE731AE790F90081866A /* EMTextStatusBar.m in Sources */,
 				1865EE671AE790F90081866A /* EMPopupView.m in Sources */,
+				96C86AF41B04961A005F6E75 /* EMRefreshTableFooterView.m in Sources */,
 				96C86AD61AFC8BEC005F6E75 /* EMNameListItem.m in Sources */,
 				1865EE691AE790F90081866A /* EMSystemAlertPopupView.m in Sources */,
 				1865EE5A1AE790F90081866A /* EMRadioControl.m in Sources */,
@@ -1519,6 +1566,7 @@
 				1860E1071AEDFDDC0050E633 /* EMGuideScrollOverlayerCell.m in Sources */,
 				1865EE801AE790F90081866A /* UIImage+FontAwesome.m in Sources */,
 				1865EE941AE790F90081866A /* SDWebImageManager.m in Sources */,
+				96C86AF11B043D40005F6E75 /* EMScrollableListModel.m in Sources */,
 				1865EEEC1AE791960081866A /* RNThemeManager.m in Sources */,
 				1865EE7A1AE790F90081866A /* BDKNotifyHUD.m in Sources */,
 				1865EE721AE790F90081866A /* EMStatusBarWindow.m in Sources */,
@@ -1539,6 +1587,7 @@
 				1865EE711AE790F90081866A /* EMStatusBarUpdating.m in Sources */,
 				1865EE461AE790F90081866A /* NSString+Drawing.m in Sources */,
 				1860E1041AEDFDDC0050E633 /* EMSingleGuideView.m in Sources */,
+				96C86AF71B049911005F6E75 /* EMRefreshTableHeaderViewForSubclass.m in Sources */,
 				1860E10F1AEE34540050E633 /* EMGuideScrollImageCell.m in Sources */,
 				1865EF211AE7929E0081866A /* EMRoundButtonViewController.m in Sources */,
 				1865EF181AE7929E0081866A /* EMArrowButtonController.m in Sources */,
@@ -1559,6 +1608,7 @@
 				1865EF831AE8F4990081866A /* EMSrollSegmentedControl.m in Sources */,
 				1865EE6F1AE790F90081866A /* EMStatusBarModel.m in Sources */,
 				1865EE7D1AE790F90081866A /* NSString+FontAwesome.m in Sources */,
+				96C86AE11B00A215005F6E75 /* EMScrollableTableTitleHeaderView.m in Sources */,
 				1865EE6B1AE790F90081866A /* EMActivityIndicatorTextModel.m in Sources */,
 				1865EECA1AE790FF0081866A /* EMThemeCheckBoxControl.m in Sources */,
 				1860E0F51AE9EAE80050E633 /* PPiFlatSegmentItem.m in Sources */,

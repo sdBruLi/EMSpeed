@@ -12,7 +12,6 @@
 
 @interface EMHTTPRequestModel : NSObject <EMHTTPResponseParse>
 
-- (instancetype)init;
 
 
 - (AFHTTPRequestOperation *)GET:(NSString *)URLString

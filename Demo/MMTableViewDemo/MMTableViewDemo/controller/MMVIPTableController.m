@@ -34,9 +34,10 @@
     [footerBGView addSubview:footerLabel];
     self.tableView.tableHeaderView = footerBGView;
     
-    
     self.enableRefreshFooter = YES;
     self.tableView.footer.hidden = YES;
+    
+    _model = [[EMVIPModel alloc] initWithTitle:@"vip资讯" Id:15 URL:@"http://t.emoney.cn/platform/information/vipnews"];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -50,24 +51,17 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"EMInfoNewsCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"EMInfoNewsCell"];
 }
 
-- (void)headerRefreshing
+- (void)reloadDatasource
 {
-    if (_model == nil) {
-        EMVIPModel *model = [[EMVIPModel alloc] initWithTitle:@"vip资讯" Id:15 URL:@"http://t.emoney.cn/platform/information/vipnews"];
-        _model = model;
-    }
-    
-    NSString *url = ((EMVIPModel *)_model).dataSource.pullRefreshURL && [((EMVIPModel *)_model).dataSource.pullRefreshURL length]>0 ? ((EMVIPModel *)_model).dataSource.pullRefreshURL : ((EMVIPModel *)_model).URL;
+    EMVIPModel *model = (EMVIPModel *)_model;
+    NSString *url = model.URL;
     
     [_model modelWithURL:url block:^(id respondObject, AFHTTPRequestOperation *operation, BOOL success) {
-        if (success && ((EMVIPModel *)_model).dataSource) {
-            [self reloadPages:((EMVIPModel *)_model).dataSource];
-        }
-        else{
-//            [self loadEmptyView];
+        if (success) {
+            [self reloadPages:model.dataSource];
         }
         
-        if (![((EMVIPModel *)_model).dataSource.nextPageURL length]>0) {
+        if (![model.dataSource.nextPageURL length]>0) {
             self.tableView.footer.hidden = YES;
         }
         else {
@@ -78,18 +72,42 @@
         
         [self.tableView.header endRefreshing];
     }];
-    
 }
 
-- (void)footerRefreshing
+- (void)refreshDataSource
 {
-    if ([((EMVIPModel *)_model).dataSource.nextPageURL length]>0) {
-        [_model modelWithURL:((EMVIPModel *)_model).dataSource.nextPageURL block:^(id respondObject, AFHTTPRequestOperation *operation, BOOL success) {
-            if (success && ((EMVIPModel *)_model).dataSource) {
-                [self reloadPages:((EMVIPModel *)_model).dataSource];
+    EMVIPModel *model = (EMVIPModel *)_model;
+    NSString *url = model.dataSource.pullRefreshURL;
+    
+    [_model modelWithURL:url block:^(id respondObject, AFHTTPRequestOperation *operation, BOOL success) {
+        if (success && model.dataSource) {
+            [self reloadPages:model.dataSource];
+        }
+        
+        if (![model.dataSource.nextPageURL length]>0) {
+            self.tableView.footer.hidden = YES;
+        }
+        else {
+            if (self.tableView.footer.hidden) {
+                self.tableView.footer.hidden = NO;;
+            }
+        }
+        
+        [self.tableView.header endRefreshing];
+    }];
+}
+
+- (void)requestMoreDataSource
+{
+    EMVIPModel *model = (EMVIPModel *)_model;
+    
+    if ([model.dataSource.nextPageURL length]>0) {
+        [model modelWithURL:model.dataSource.nextPageURL block:^(id respondObject, AFHTTPRequestOperation *operation, BOOL success) {
+            if (success && model.dataSource) {
+                [self reloadPages:model.dataSource];
             }
             
-            if ([((EMVIPModel *)_model).dataSource.nextPageURL length]>0) {
+            if ([model.dataSource.nextPageURL length]>0) {
                 if (self.tableView.footer.hidden) {
                     self.tableView.footer.hidden = NO;
                 }
@@ -100,6 +118,30 @@
             }
         }];
     }
+    else {
+        [self.tableView.footer noticeNoMoreData];
+    }
+}
+
+- (BOOL)isReload
+{
+    EMVIPModel *model = (EMVIPModel *)_model;
+    return [model.dataSource.pullRefreshURL length] == 0;
+}
+
+- (void)headerRefreshing
+{
+    if ([self isReload]) {
+        [self reloadDatasource];
+    }
+    else {
+        [self refreshDataSource];
+    }
+}
+
+- (void)footerRefreshing
+{
+    [self requestMoreDataSource];
 }
 
 

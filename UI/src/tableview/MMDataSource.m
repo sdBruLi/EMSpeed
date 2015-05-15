@@ -70,6 +70,20 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         }
         
+//        if (cell == nil)
+//        {
+//            if ([identifier length] > 0) {
+//                NSString *path = EMPathForBundleResource([NSBundle mainBundle], [NSString stringWithFormat:@"%@.xib", identifier]);
+//                BOOL isXibExist = EMIsFileExistAtPath(path);
+//                if (isXibExist) {
+//                    NSArray *cells = [[NSBundle mainBundle] loadNibNamed:identifier owner:nil options:nil];
+//                    if ([cells count] > 0) {
+//                        cell= [cells lastObject];
+//                    }
+//                }
+//            }
+//        }
+        
         if ([cell respondsToSelector:@selector(update:indexPath:)]) {
             [cell update:item indexPath:indexPath];
         }

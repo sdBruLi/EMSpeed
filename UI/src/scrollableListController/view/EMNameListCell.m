@@ -27,6 +27,7 @@
     view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     view.backgroundColor = RGB(0xfa, 0xfa, 0xfa);
     self.selectedBackgroundView = view;
+    
 }
 
 - (void)update:(id<MMCellModel>)cellModel

@@ -16,19 +16,17 @@ NSString *const EMScrollableListCellHighlightedNotification;
 
 @class EMBorderView;
 
-
 @interface EMScrollableListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 {
     UIEdgeInsets _contentInsets;
     
-    UIView *_stockListView;
+    UIView       *_listBackgroundView;
     UITableView  *_titleTableView;
     UITableView  *_contentTableView;
     UIScrollView *_contentScrollView;
 
-    EMBorderView *_titleHeaderView;
-    UIButton     *_titleHeaderButton;
-    EMBorderView *_contentHeaderView;
+    UIView *_titleHeaderView;
+    UIView *_contentHeaderView;
     
     //行情数据左右滚动提示视图
     UILabel *_scrollTipImageViewLeft;
@@ -42,6 +40,8 @@ NSString *const EMScrollableListCellHighlightedNotification;
 
 
 @property (nonatomic, strong) EMScrollableList *scrollableList;
+
+- (instancetype)init;
 
 /**
  *请求返回数据后加载数据
