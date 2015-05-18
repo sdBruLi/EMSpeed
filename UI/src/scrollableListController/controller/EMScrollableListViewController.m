@@ -28,7 +28,6 @@ NSString *const EMScrollableListCellSelectedNotification = @"EMStocklistCellSele
 NSString *const EMScrollableListCellHighlightedNotification = @"EMStocklistCellHighlightedNotification";
 
 
-
 @interface EMScrollableListViewController ()
 {
 }
@@ -95,24 +94,19 @@ NSString *const EMScrollableListCellHighlightedNotification = @"EMStocklistCellH
  */
 - (void)loadTableView
 {
-    _listBackgroundView = [self createBackgroundView];
+    _backgroundView = [self createBackgroundView];
     _titleTableView = [self createTitleTableView];
     _contentTableView = [self createContentTableView];
     _contentScrollView = [self createContentScrollView];
     _scrollTipImageViewLeft = [self createLeftScrollTipLabel];
     _scrollTipImageViewRight = [self createRightScrollTipLabel];
     
-    [self.view addSubview:_listBackgroundView];
-    [_listBackgroundView addSubview:_titleTableView];
-    [_listBackgroundView addSubview:_contentScrollView];
+    [self.view addSubview:_backgroundView];
+    [_backgroundView addSubview:_titleTableView];
+    [_backgroundView addSubview:_contentScrollView];
     [_contentScrollView addSubview:_contentTableView];
-    [_listBackgroundView addSubview:_scrollTipImageViewLeft];
-    [_listBackgroundView addSubview:_scrollTipImageViewRight];
-    
-//    _listBackgroundView.backgroundColor = [UIColor blackColor];
-//    _titleTableView.backgroundColor = [UIColor blackColor];
-    _contentTableView.backgroundColor = [UIColor clearColor];
-    
+    [_backgroundView addSubview:_scrollTipImageViewLeft];
+    [_backgroundView addSubview:_scrollTipImageViewRight];
     
     [self registerTableViewCell];
     [self setViewConstraints];
@@ -135,6 +129,7 @@ NSString *const EMScrollableListCellHighlightedNotification = @"EMStocklistCellH
 - (UITableView *)createContentTableView
 {
     UITableView *contentTableView = [[UITableView alloc] init];
+    contentTableView.backgroundColor = [UIColor clearColor];
     contentTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     contentTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     contentTableView.contentInset = UIEdgeInsetsZero;
@@ -199,7 +194,7 @@ NSString *const EMScrollableListCellHighlightedNotification = @"EMStocklistCellH
     CGSize tipSize = CGSizeMake(10, 24);
     CGFloat originY = .5 * (self.tableHeaderHeight - tipSize.height);
     
-    [_listBackgroundView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [_backgroundView setTranslatesAutoresizingMaskIntoConstraints:NO];
     [_contentScrollView setTranslatesAutoresizingMaskIntoConstraints:NO];
     [_scrollTipImageViewRight setTranslatesAutoresizingMaskIntoConstraints:NO];
     
@@ -215,9 +210,9 @@ NSString *const EMScrollableListCellHighlightedNotification = @"EMStocklistCellH
                                                                                 options:0
                                                                                 metrics:nil
                                                                                   views:NSDictionaryOfVariableBindings(_scrollTipImageViewRight)]];
-    [_listBackgroundView addConstraints:tmpConstraints];
-    [_listBackgroundView em_addConstraintsWithContentInsets:UIEdgeInsetsMake(0, kTitleTableViewWidth, 0, 0) subView:_contentScrollView];
-    [self.view em_addConstraintsWithContentInsets:_contentInsets subView:_listBackgroundView];
+    [_backgroundView addConstraints:tmpConstraints];
+    [_backgroundView em_addConstraintsWithContentInsets:UIEdgeInsetsMake(0, kTitleTableViewWidth, 0, 0) subView:_contentScrollView];
+    [self.view em_addConstraintsWithContentInsets:_contentInsets subView:_backgroundView];
 }
 
 - (void)viewDidLayoutSubviews
@@ -298,7 +293,7 @@ NSString *const EMScrollableListCellHighlightedNotification = @"EMStocklistCellH
         _contentTableView.dataSource = nil;
         _contentScrollView.delegate  = nil;
         
-        _listBackgroundView = nil;
+        _backgroundView = nil;
         _titleHeaderView = nil;
         _contentHeaderView = nil;
         _titleTableView = nil;
@@ -317,7 +312,7 @@ NSString *const EMScrollableListCellHighlightedNotification = @"EMStocklistCellH
     _contentTableView.delegate   = nil;
     _contentTableView.dataSource = nil;
     _contentScrollView.delegate  = nil;
-    _listBackgroundView = nil;
+    _backgroundView = nil;
     _titleHeaderView = nil;
     _contentHeaderView = nil;
     _titleTableView = nil;
@@ -465,7 +460,7 @@ NSString *const EMScrollableListCellHighlightedNotification = @"EMStocklistCellH
     }
     else
     {
-        return [self priceTableView:tableView cellForRowAtIndexPath:indexPath];
+        return [self contentTableView:tableView cellForRowAtIndexPath:indexPath];
     }
 }
 
@@ -475,7 +470,7 @@ NSString *const EMScrollableListCellHighlightedNotification = @"EMStocklistCellH
     return [self tableView:tableView item:item indexPath:indexPath];
 }
 
-- (UITableViewCell *)priceTableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)contentTableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     id<MMCellModel> item = [_scrollableList contentItemAtIndexPath:indexPath];
     return [self tableView:tableView item:item indexPath:indexPath];

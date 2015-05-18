@@ -24,10 +24,8 @@
 		1865ED401AE790910081866A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1865ED3F1AE790910081866A /* Images.xcassets */; };
 		1865ED431AE790910081866A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1865ED411AE790910081866A /* LaunchScreen.xib */; };
 		1865ED4F1AE790910081866A /* UIDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1865ED4E1AE790910081866A /* UIDemoTests.m */; };
-		1865ED791AE790EC0081866A /* NSString+GTM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1865ED5B1AE790EC0081866A /* NSString+GTM.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1865ED7A1AE790EC0081866A /* NSDate+String.m in Sources */ = {isa = PBXBuildFile; fileRef = 1865ED5D1AE790EC0081866A /* NSDate+String.m */; };
 		1865ED7B1AE790EC0081866A /* NSObject+Reflect.m in Sources */ = {isa = PBXBuildFile; fileRef = 1865ED5F1AE790EC0081866A /* NSObject+Reflect.m */; };
-		1865ED7D1AE790EC0081866A /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 1865ED631AE790EC0081866A /* NSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1865ED7E1AE790EC0081866A /* NSString+Pinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = 1865ED651AE790EC0081866A /* NSString+Pinyin.m */; };
 		1865ED7F1AE790EC0081866A /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 1865ED671AE790EC0081866A /* NSString+URLEncoding.m */; };
 		1865ED801AE790EC0081866A /* NSString+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 1865ED691AE790EC0081866A /* NSString+Utility.m */; };
@@ -250,14 +248,10 @@
 		1865ED481AE790910081866A /* UIDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1865ED4D1AE790910081866A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1865ED4E1AE790910081866A /* UIDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIDemoTests.m; sourceTree = "<group>"; };
-		1865ED5A1AE790EC0081866A /* NSString+GTM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GTM.h"; sourceTree = "<group>"; };
-		1865ED5B1AE790EC0081866A /* NSString+GTM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+GTM.m"; sourceTree = "<group>"; };
 		1865ED5C1AE790EC0081866A /* NSDate+String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+String.h"; sourceTree = "<group>"; };
 		1865ED5D1AE790EC0081866A /* NSDate+String.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+String.m"; sourceTree = "<group>"; };
 		1865ED5E1AE790EC0081866A /* NSObject+Reflect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Reflect.h"; sourceTree = "<group>"; };
 		1865ED5F1AE790EC0081866A /* NSObject+Reflect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Reflect.m"; sourceTree = "<group>"; };
-		1865ED621AE790EC0081866A /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
-		1865ED631AE790EC0081866A /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
 		1865ED641AE790EC0081866A /* NSString+Pinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Pinyin.h"; sourceTree = "<group>"; };
 		1865ED651AE790EC0081866A /* NSString+Pinyin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Pinyin.m"; sourceTree = "<group>"; };
 		1865ED661AE790EC0081866A /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
@@ -740,10 +734,6 @@
 		1865ED591AE790EC0081866A /* category */ = {
 			isa = PBXGroup;
 			children = (
-				1865ED5A1AE790EC0081866A /* NSString+GTM.h */,
-				1865ED5B1AE790EC0081866A /* NSString+GTM.m */,
-				1865ED621AE790EC0081866A /* NSString+HTML.h */,
-				1865ED631AE790EC0081866A /* NSString+HTML.m */,
 				1865ED5C1AE790EC0081866A /* NSDate+String.h */,
 				1865ED5D1AE790EC0081866A /* NSDate+String.m */,
 				96C86A7A1AFB3BC5005F6E75 /* NSDate+Formatter.h */,
@@ -1512,10 +1502,8 @@
 				1860E10A1AEDFEB60050E633 /* UIView+Genie.m in Sources */,
 				1865EF1D1AE7929E0081866A /* EMLinkedButtonController.m in Sources */,
 				1865EE5B1AE790F90081866A /* EMRoundButton.m in Sources */,
-				1865ED791AE790EC0081866A /* NSString+GTM.m in Sources */,
 				96C86ADB1AFC8BEC005F6E75 /* EMNameListCell.m in Sources */,
 				1865EE521AE790F90081866A /* MMMutableCollectionDataSource.m in Sources */,
-				1865ED7D1AE790EC0081866A /* NSString+HTML.m in Sources */,
 				1865EE781AE790F90081866A /* MMTableController.m in Sources */,
 				1865EF7D1AE8EB360081866A /* EMThemeSegmentCellFactory.m in Sources */,
 				1865EE921AE790F90081866A /* SDWebImageDownloader.m in Sources */,
