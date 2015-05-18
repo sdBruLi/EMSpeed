@@ -5,6 +5,7 @@ target 'Test' do
 
 # develop mode
 pod 'EMSpeed/Core', :path => '../../'
+pod 'EMSpeed/UI', :path => '../../'
 
 # normal mode
 #pod 'EMSpeed/Core', :podspec =>'../../EMSpeed.podspec'
