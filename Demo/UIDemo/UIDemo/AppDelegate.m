@@ -9,7 +9,6 @@
 #import "AppDelegate.h"
 #import "EMMenuViewController.h"
 #import "EMThemeManager.h"
-#import "NSString+GTM.h"
 
 @interface AppDelegate ()
 
@@ -20,11 +19,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    NSString *str = [@"&123" gtm_stringByEscapingForHTML];
-    str = [str gtm_stringByUnescapingFromHTML];
-    
-    [EMThemeManager sharedManager]; // 颜色管理先初始化一下
-    
+
     UIViewController *vc = [[EMMenuViewController alloc] init];
     vc.title = @"Demo";
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];

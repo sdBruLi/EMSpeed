@@ -20,7 +20,7 @@ NSString *const EMScrollableListCellHighlightedNotification;
 {
     UIEdgeInsets _contentInsets;
     
-    UIView       *_listBackgroundView;
+    UIView       *_backgroundView;
     UITableView  *_titleTableView;
     UITableView  *_contentTableView;
     UIScrollView *_contentScrollView;
@@ -39,7 +39,7 @@ NSString *const EMScrollableListCellHighlightedNotification;
 }
 
 
-@property (nonatomic, strong) EMScrollableList *scrollableList;
+@property (nonatomic, strong, readonly) EMScrollableList *scrollableList;
 
 - (instancetype)init;
 
