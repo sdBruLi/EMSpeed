@@ -1,5 +1,5 @@
 {
       "project.name" : "EMSpeed",
-      "phabricator.uri" : "http://www.phabricator.cn",
+      "phabricator.uri" : "http://ph.benemind.com",
       "repository.callsign": "EMSPEED"
 }
