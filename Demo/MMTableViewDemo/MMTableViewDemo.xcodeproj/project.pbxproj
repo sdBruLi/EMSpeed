@@ -55,14 +55,14 @@
 		18309BDC1AF086630057945D /* MMInfoCell3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18309BCC1AF086630057945D /* MMInfoCell3.xib */; };
 		1835D2E31AF209B3008E4FD8 /* EMUIResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1835D2E21AF209B3008E4FD8 /* EMUIResources.bundle */; };
 		1835D2E61AF212D3008E4FD8 /* MMTableEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1835D2E51AF212D3008E4FD8 /* MMTableEmptyView.m */; };
-		1835D2F21AF218BF008E4FD8 /* EMHTTPRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1835D2EA1AF218BF008E4FD8 /* EMHTTPRequestModel.m */; };
-		1835D2F31AF218BF008E4FD8 /* EMHTTPResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 1835D2EC1AF218BF008E4FD8 /* EMHTTPResponse.m */; };
-		1835D2F41AF218BF008E4FD8 /* EMParseableObject+CellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1835D2EE1AF218BF008E4FD8 /* EMParseableObject+CellModel.m */; };
-		1835D2F51AF218BF008E4FD8 /* EMParseableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 1835D2F01AF218BF008E4FD8 /* EMParseableObject.m */; };
 		1835D2F81AF21BA5008E4FD8 /* MMInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1835D2F71AF21BA5008E4FD8 /* MMInfoTableViewController.m */; };
 		1835D2FA1AF21BEF008E4FD8 /* MMInfoTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1835D2F91AF21BEF008E4FD8 /* MMInfoTableViewController.xib */; };
 		1835D3121AF226B5008E4FD8 /* MMVIPTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1835D3101AF226B5008E4FD8 /* MMVIPTableViewController.m */; };
 		1835D3131AF226B5008E4FD8 /* MMVIPTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1835D3111AF226B5008E4FD8 /* MMVIPTableViewController.xib */; };
+		94F488F31B0624E900FCD516 /* EMHTTPRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F488EA1B0624E900FCD516 /* EMHTTPRequestModel.m */; };
+		94F488F41B0624E900FCD516 /* EMHTTPResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F488EC1B0624E900FCD516 /* EMHTTPResponse.m */; };
+		94F488F51B0624E900FCD516 /* EMParseableObject+CellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F488EF1B0624E900FCD516 /* EMParseableObject+CellModel.m */; };
+		94F488F61B0624E900FCD516 /* EMParseableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F488F11B0624E900FCD516 /* EMParseableObject.m */; };
 		96AF1FA51AA1BB1D0032735D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96AF1FA41AA1BB1D0032735D /* Default-568h@2x.png */; };
 		96BC730F1A9F0AFC0020E5A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 96BC730E1A9F0AFC0020E5A1 /* main.m */; };
 		96BC73121A9F0AFC0020E5A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 96BC73111A9F0AFC0020E5A1 /* AppDelegate.m */; };
@@ -186,22 +186,23 @@
 		1835D2E21AF209B3008E4FD8 /* EMUIResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EMUIResources.bundle; sourceTree = "<group>"; };
 		1835D2E41AF212D3008E4FD8 /* MMTableEmptyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTableEmptyView.h; sourceTree = "<group>"; };
 		1835D2E51AF212D3008E4FD8 /* MMTableEmptyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTableEmptyView.m; sourceTree = "<group>"; };
-		1835D2E81AF218BF008E4FD8 /* EMCellModelParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCellModelParser.h; sourceTree = "<group>"; };
-		1835D2E91AF218BF008E4FD8 /* EMHTTPRequestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMHTTPRequestModel.h; sourceTree = "<group>"; };
-		1835D2EA1AF218BF008E4FD8 /* EMHTTPRequestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMHTTPRequestModel.m; sourceTree = "<group>"; };
-		1835D2EB1AF218BF008E4FD8 /* EMHTTPResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMHTTPResponse.h; sourceTree = "<group>"; };
-		1835D2EC1AF218BF008E4FD8 /* EMHTTPResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMHTTPResponse.m; sourceTree = "<group>"; };
-		1835D2ED1AF218BF008E4FD8 /* EMParseableObject+CellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EMParseableObject+CellModel.h"; sourceTree = "<group>"; };
-		1835D2EE1AF218BF008E4FD8 /* EMParseableObject+CellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EMParseableObject+CellModel.m"; sourceTree = "<group>"; };
-		1835D2EF1AF218BF008E4FD8 /* EMParseableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMParseableObject.h; sourceTree = "<group>"; };
-		1835D2F01AF218BF008E4FD8 /* EMParseableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMParseableObject.m; sourceTree = "<group>"; };
-		1835D2F11AF218BF008E4FD8 /* EMParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMParser.h; sourceTree = "<group>"; };
 		1835D2F61AF21BA5008E4FD8 /* MMInfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMInfoTableViewController.h; sourceTree = "<group>"; };
 		1835D2F71AF21BA5008E4FD8 /* MMInfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMInfoTableViewController.m; sourceTree = "<group>"; };
 		1835D2F91AF21BEF008E4FD8 /* MMInfoTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMInfoTableViewController.xib; sourceTree = "<group>"; };
 		1835D30F1AF226B5008E4FD8 /* MMVIPTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMVIPTableViewController.h; sourceTree = "<group>"; };
 		1835D3101AF226B5008E4FD8 /* MMVIPTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMVIPTableViewController.m; sourceTree = "<group>"; };
 		1835D3111AF226B5008E4FD8 /* MMVIPTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMVIPTableViewController.xib; sourceTree = "<group>"; };
+		94F488E81B0624E900FCD516 /* EMCellModelParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCellModelParser.h; sourceTree = "<group>"; };
+		94F488E91B0624E900FCD516 /* EMHTTPRequestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMHTTPRequestModel.h; sourceTree = "<group>"; };
+		94F488EA1B0624E900FCD516 /* EMHTTPRequestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMHTTPRequestModel.m; sourceTree = "<group>"; };
+		94F488EB1B0624E900FCD516 /* EMHTTPResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMHTTPResponse.h; sourceTree = "<group>"; };
+		94F488EC1B0624E900FCD516 /* EMHTTPResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMHTTPResponse.m; sourceTree = "<group>"; };
+		94F488ED1B0624E900FCD516 /* EMHTTPResponseParse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMHTTPResponseParse.h; sourceTree = "<group>"; };
+		94F488EE1B0624E900FCD516 /* EMParseableObject+CellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EMParseableObject+CellModel.h"; sourceTree = "<group>"; };
+		94F488EF1B0624E900FCD516 /* EMParseableObject+CellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EMParseableObject+CellModel.m"; sourceTree = "<group>"; };
+		94F488F01B0624E900FCD516 /* EMParseableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMParseableObject.h; sourceTree = "<group>"; };
+		94F488F11B0624E900FCD516 /* EMParseableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMParseableObject.m; sourceTree = "<group>"; };
+		94F488F21B0624E900FCD516 /* EMParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMParser.h; sourceTree = "<group>"; };
 		96AF1FA41AA1BB1D0032735D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		96BC73091A9F0AFB0020E5A1 /* MMTableViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMTableViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96BC730D1A9F0AFC0020E5A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -415,19 +416,28 @@
 		1835D2E71AF218BF008E4FD8 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				1835D2E81AF218BF008E4FD8 /* EMCellModelParser.h */,
-				1835D2E91AF218BF008E4FD8 /* EMHTTPRequestModel.h */,
-				1835D2EA1AF218BF008E4FD8 /* EMHTTPRequestModel.m */,
-				1835D2EB1AF218BF008E4FD8 /* EMHTTPResponse.h */,
-				1835D2EC1AF218BF008E4FD8 /* EMHTTPResponse.m */,
-				1835D2ED1AF218BF008E4FD8 /* EMParseableObject+CellModel.h */,
-				1835D2EE1AF218BF008E4FD8 /* EMParseableObject+CellModel.m */,
-				1835D2EF1AF218BF008E4FD8 /* EMParseableObject.h */,
-				1835D2F01AF218BF008E4FD8 /* EMParseableObject.m */,
-				1835D2F11AF218BF008E4FD8 /* EMParser.h */,
+				94F488E71B0624E900FCD516 /* src */,
 			);
 			name = Network;
 			path = ../../../Network;
+			sourceTree = "<group>";
+		};
+		94F488E71B0624E900FCD516 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				94F488E81B0624E900FCD516 /* EMCellModelParser.h */,
+				94F488E91B0624E900FCD516 /* EMHTTPRequestModel.h */,
+				94F488EA1B0624E900FCD516 /* EMHTTPRequestModel.m */,
+				94F488EB1B0624E900FCD516 /* EMHTTPResponse.h */,
+				94F488EC1B0624E900FCD516 /* EMHTTPResponse.m */,
+				94F488ED1B0624E900FCD516 /* EMHTTPResponseParse.h */,
+				94F488EE1B0624E900FCD516 /* EMParseableObject+CellModel.h */,
+				94F488EF1B0624E900FCD516 /* EMParseableObject+CellModel.m */,
+				94F488F01B0624E900FCD516 /* EMParseableObject.h */,
+				94F488F11B0624E900FCD516 /* EMParseableObject.m */,
+				94F488F21B0624E900FCD516 /* EMParser.h */,
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 		96BC73001A9F0AFB0020E5A1 = {
@@ -637,7 +647,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1835D2F31AF218BF008E4FD8 /* EMHTTPResponse.m in Sources */,
 				18309B531AEF93B50057945D /* UIScrollView+MJExtension.m in Sources */,
 				18309BD01AF086630057945D /* EMInfoNewsItem.m in Sources */,
 				96BC73901A9F104E0020E5A1 /* AFURLSessionManager.m in Sources */,
@@ -647,9 +656,9 @@
 				1835D2F81AF21BA5008E4FD8 /* MMInfoTableViewController.m in Sources */,
 				96BC738A1A9F104E0020E5A1 /* AFHTTPSessionManager.m in Sources */,
 				18309BCE1AF086630057945D /* MMMenuController.m in Sources */,
+				94F488F51B0624E900FCD516 /* EMParseableObject+CellModel.m in Sources */,
 				1835D3121AF226B5008E4FD8 /* MMVIPTableViewController.m in Sources */,
 				18309B501AEF93B50057945D /* MJRefreshHeader.m in Sources */,
-				1835D2F21AF218BF008E4FD8 /* EMHTTPRequestModel.m in Sources */,
 				96BC738B1A9F104E0020E5A1 /* AFNetworkReachabilityManager.m in Sources */,
 				18309B681AEF93BF0057945D /* MMRefreshTableViewController.m in Sources */,
 				18309B6A1AEF93BF0057945D /* MMTableViewController.m in Sources */,
@@ -659,7 +668,6 @@
 				96BC73121A9F0AFC0020E5A1 /* AppDelegate.m in Sources */,
 				18309B671AEF93BF0057945D /* MMRefreshTableController.m in Sources */,
 				18309B981AF072B40057945D /* pinyin.c in Sources */,
-				1835D2F51AF218BF008E4FD8 /* EMParseableObject.m in Sources */,
 				18309BD31AF086630057945D /* MMInfoItem3.m in Sources */,
 				18309B521AEF93B50057945D /* MJRefreshLegendHeader.m in Sources */,
 				18309B541AEF93B50057945D /* UIScrollView+MJRefresh.m in Sources */,
@@ -676,6 +684,8 @@
 				18309B961AF072B40057945D /* NSString+URLEncoding.m in Sources */,
 				18309B4F1AEF93B50057945D /* MJRefreshGifHeader.m in Sources */,
 				18309B4C1AEF93B50057945D /* MJRefreshConst.m in Sources */,
+				94F488F31B0624E900FCD516 /* EMHTTPRequestModel.m in Sources */,
+				94F488F61B0624E900FCD516 /* EMParseableObject.m in Sources */,
 				18309BD11AF086630057945D /* EMVIPModel.m in Sources */,
 				18309B9A1AF072B40057945D /* EMCoreFunction.m in Sources */,
 				18309B971AF072B40057945D /* NSString+Utility.m in Sources */,
@@ -688,11 +698,11 @@
 				96BC738F1A9F104E0020E5A1 /* AFURLResponseSerialization.m in Sources */,
 				18309B9B1AF072B40057945D /* EMCoreMetrics.m in Sources */,
 				18309B991AF072B40057945D /* EMCoreFileManager.m in Sources */,
+				94F488F41B0624E900FCD516 /* EMHTTPResponse.m in Sources */,
 				18309B4E1AEF93B50057945D /* MJRefreshGifFooter.m in Sources */,
 				18309BD51AF086630057945D /* EMInfoNewsCell.m in Sources */,
 				18309B691AEF93BF0057945D /* MMTableController.m in Sources */,
 				18309BDB1AF086630057945D /* MMInfoCell3.m in Sources */,
-				1835D2F41AF218BF008E4FD8 /* EMParseableObject+CellModel.m in Sources */,
 				18309BD71AF086630057945D /* MMInfoCell.m in Sources */,
 				18309B4D1AEF93B50057945D /* MJRefreshFooter.m in Sources */,
 				18309BD21AF086630057945D /* MMInfoItem.m in Sources */,

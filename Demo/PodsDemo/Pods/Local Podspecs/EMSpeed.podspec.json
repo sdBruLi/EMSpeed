@@ -1,0 +1,64 @@
+{
+  "name": "EMSpeed",
+  "version": "0.0.1",
+  "summary": "A short description of EMSpeed.",
+  "description": "                   A longer description of EMSpeed in Markdown format.\n\n                   * Think: Why did you write this? What is the focus? What does it do?\n                   * CocoaPods will be using this to generate tags, and improve search results.\n                   * Try to keep it short, snappy and to the point.\n                   * Finally, don't worry about the indent, CocoaPods strips it!\n",
+  "homepage": "https://github.com/emoneycn/emspeed.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Emoney": "ios@emoney.com"
+  },
+  "platforms": {
+    "ios": null
+  },
+  "source": {
+    "git": "https://github.com/emoneycn/emspeed",
+    "tag": "0.0.1"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Core/**/*.{h,m,c,swift}",
+      "resources": "Core/resource/**/*.*"
+    },
+    {
+      "name": "Network",
+      "source_files": "Network/**/*.{h,m,c,swift}",
+      "resources": "Network/resource/**/*.*",
+      "dependencies": {
+        "EMSpeed/Core": [
+
+        ],
+        "AFNetworking": [
+          "~> 1.4"
+        ]
+      }
+    },
+    {
+      "name": "UI",
+      "source_files": "UI/**/*.{h,m,c,swift}",
+      "resources": "UI/resource/**/*.*",
+      "dependencies": {
+        "EMSpeed/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "ThemeManager",
+      "source_files": "Theme/**/*.{h,m,c,swift}",
+      "resources": "UI/resource/**/*.*",
+      "dependencies": {
+        "EMSpeed/Core": [
+
+        ],
+        "EMSpeed/UI": [
+
+        ]
+      }
+    }
+  ]
+}

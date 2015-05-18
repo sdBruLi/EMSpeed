@@ -33,26 +33,26 @@ Pod::Spec.new do |s|
 
 
   s.subspec 'Core' do |cs|
-    cs.source_files  = "Core/**/*.{h,m,swift}"
+    cs.source_files  = "Core/**/*.{h,m,c,swift}"
     cs.resources     = "Core/resource/**/*.*"
     #cs.frameworks = "SomeFramework", "AnotherFramework"
   end
 
   s.subspec 'Network' do |cs|
-    cs.source_files  = "Network/**/*.{h,m,swift}"
+    cs.source_files  = "Network/**/*.{h,m,c,swift}"
     cs.resources     = "Network/resource/**/*.*"
     cs.dependency 'EMSpeed/Core'
     cs.dependency "AFNetworking", "~> 1.4"
   end
 
   s.subspec 'UI' do |cs|
-    cs.source_files  = "UI/**/*.{h,m,swift}"
+    cs.source_files  = "UI/**/*.{h,m,c,swift}"
     cs.resources     = "UI/resource/**/*.*"
     cs.dependency 'EMSpeed/Core'
   end
 
   s.subspec 'ThemeManager' do |cs|
-    cs.source_files  = "Theme/**/*.{h,m,swift}"
+    cs.source_files  = "Theme/**/*.{h,m,c,swift}"
     cs.resources     = "UI/resource/**/*.*"
     cs.dependency 'EMSpeed/Core'
     cs.dependency 'EMSpeed/UI'
